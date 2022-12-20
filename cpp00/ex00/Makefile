@@ -1,4 +1,4 @@
-NAME		=	megaphone.out
+NAME		=	megaphone
 
 SRC_DIR		=	src
 OBJ_DIR		=	obj
