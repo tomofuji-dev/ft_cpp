@@ -5,16 +5,15 @@ Contact::Contact(): first_name(std::string()), \
 						nickname(std::string()), \
 						phone_number(std::string()), \
 						darkest_secret(std::string()){
+	std::cout << "Contract constructor is called." << std::endl;
 }
 
-Contact::Contact(std::string first_name, std::string last_name, \
-				 std::string nickname, std::string phone_number, \
-				 std::string darkest_secret):
-						first_name(first_name), \
-						last_name(last_name), \
-						nickname(nickname), \
-						phone_number(phone_number), \
-						darkest_secret(darkest_secret){
+Contact::Contact(std::string argv[5]): first_name(argv[0]), \
+										last_name(argv[1]), \
+										nickname(argv[2]), \
+										phone_number(argv[3]), \
+										darkest_secret(argv[4]){
+	std::cout << "Contract constructor is called." << std::endl;
 }
 
 Contact::Contact(Contact const & src): first_name(src.get_first_name()), \
@@ -22,9 +21,11 @@ Contact::Contact(Contact const & src): first_name(src.get_first_name()), \
 										nickname(src.get_nickname()), \
 										phone_number(src.get_phone_number()), \
 										darkest_secret(src.get_darkest_secret()) {
+	std::cout << "Contract constructor is called." << std::endl;
 }
 
 Contact::~Contact() {
+	std::cout << "Contract destructor is called." << std::endl;
 }
 
 Contact &	Contact::operator=(Contact const &rhs) {

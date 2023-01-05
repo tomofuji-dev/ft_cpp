@@ -12,7 +12,8 @@ CC			=	c++
 CFLAGS		=	-Wall -Wextra -Werror -std=c++98
 RM			=	rm
 
-SRCS		=	$(SRC_DIR)/Contact.cpp
+SRCS		=	$(SRC_DIR)/Contact.cpp \
+				$(SRC_DIR)/PhoneBook.cpp
 OBJS		=	$(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 DEPS		=	$(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.d)
 .PHONY: $(DEPS)

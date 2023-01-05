@@ -1,6 +1,8 @@
 #ifndef CONTACT_H
 # define CONTACT_H
 
+# define CONTACT_FIELD_LEN 5
+
 #include <iostream>
 
 class Contact {
@@ -13,9 +15,7 @@ private:
 
 public:
 	Contact();
-	Contact(std::string first_name, std::string last_name, \
-			std::string nickname, std::string phone_number, \
-			std::string darkest_secret);
+	Contact(std::string argv[CONTACT_FIELD_LEN]);
 	Contact(Contact const & src);
 	~Contact();
 
