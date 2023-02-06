@@ -5,15 +5,18 @@ Contact::Contact(): first_name(std::string()), \
 						nickname(std::string()), \
 						phone_number(std::string()), \
 						darkest_secret(std::string()){
-	std::cout << "Contract constructor is called." << std::endl;
 }
 
-Contact::Contact(std::string argv[5]): first_name(argv[0]), \
-										last_name(argv[1]), \
-										nickname(argv[2]), \
-										phone_number(argv[3]), \
-										darkest_secret(argv[4]){
-	std::cout << "Contract constructor is called." << std::endl;
+Contact::Contact(std::string first_name, \
+				std::string last_name, \
+				std::string nickname, \
+				std::string phone_number, \
+				std::string darkest_secret): \
+										first_name(first_name), \
+										last_name(last_name), \
+										nickname(nickname), \
+										phone_number(phone_number), \
+										darkest_secret(darkest_secret){
 }
 
 Contact::Contact(Contact const & src): first_name(src.get_first_name()), \
@@ -21,11 +24,9 @@ Contact::Contact(Contact const & src): first_name(src.get_first_name()), \
 										nickname(src.get_nickname()), \
 										phone_number(src.get_phone_number()), \
 										darkest_secret(src.get_darkest_secret()) {
-	std::cout << "Contract constructor is called." << std::endl;
 }
 
 Contact::~Contact() {
-	std::cout << "Contract destructor is called." << std::endl;
 }
 
 Contact &	Contact::operator=(Contact const &rhs) {
@@ -34,27 +35,27 @@ Contact &	Contact::operator=(Contact const &rhs) {
 	this->nickname = rhs.get_nickname();
 	this->phone_number = rhs.get_phone_number();
 	this->darkest_secret = rhs.get_darkest_secret();
-	return (*this);
+	return *this;
 }
 
 std::string	Contact::get_first_name() const {
-	return (this->first_name);
+	return this->first_name;
 }
 
 std::string	Contact::get_last_name() const {
-	return (this->last_name);
+	return this->last_name;
 }
 
 std::string	Contact::get_nickname() const {
-	return (this->nickname);
+	return this->nickname;
 }
 
 std::string	Contact::get_phone_number() const {
-	return (this->phone_number);
+	return this->phone_number;
 }
 
 std::string	Contact::get_darkest_secret() const {
-	return (this->darkest_secret);
+	return this->darkest_secret;
 }
 
 void Contact::print_all_fields() const {
