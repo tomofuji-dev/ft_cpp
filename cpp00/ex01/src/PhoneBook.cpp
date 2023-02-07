@@ -115,7 +115,7 @@ void	PhoneBook::add() {
 
 void	PhoneBook::search() {
 	std::string	input;
-	int			index;
+	size_t		index;
 	size_t		start;
 	bool		invalid_input = true;
 
@@ -130,7 +130,7 @@ void	PhoneBook::search() {
 			continue ;
 		};
 		try {
-			index = std::stoi(input);
+			index = std::stoul(input);
 			invalid_input = false;
 		}
 		catch (const std::invalid_argument& ex) {
@@ -156,7 +156,6 @@ void	PhoneBook::print_all_contacts() {
 	print_row(LIST_FIELD_COL, header);
 	len = this->latest_index <= PHONEBOOK_LEN ? this->latest_index : PHONEBOOK_LEN;
 	start = this->latest_index <= PHONEBOOK_LEN ? 0 : this->latest_index % PHONEBOOK_LEN;
-	std::cout << "start: " << start << std::endl;
 	for (size_t i = 0; i < len; i++) {
 		index = (start + i) % PHONEBOOK_LEN;
 		contact_field[INDEX] = std::to_string(i);
