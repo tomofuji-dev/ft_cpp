@@ -39,7 +39,7 @@ int		main( void ) {
 	(void) acc_begin, (void) acc_end, (void) dep_begin, (void) dep_end, (void)wit_begin, (void)wit_end;
 
 	Account::displayAccountsInfos();
-	// std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
+	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
 
 	// for ( acc_int_t it( acc_begin, dep_begin );
 	// 	  it.first != acc_end && it.second != dep_end;
