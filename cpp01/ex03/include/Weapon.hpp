@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   .hpp                                               :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: t.fuji <t.fuji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 10:41:56 by t.fuji            #+#    #+#             */
-/*   Updated: 2023/02/10 11:25:44 by t.fuji           ###   ########.fr       */
+/*   Updated: 2023/02/10 14:00:43 by t.fuji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+#include <string>
 
-class className {
+class Weapon {
 
 public:
 
-	className();
-	className(className const & src);
-	~className();
-	className&	operator=(className const &rhs);
+	Weapon();
+	Weapon(std::string const type);
+	Weapon(Weapon const &src);
+	~Weapon();
+	Weapon&	operator=(Weapon const &rhs);
+
+	std::string	getType() const;
+	void		setType(std::string src);
 
 private:
-
+	std::string _type;
 };
