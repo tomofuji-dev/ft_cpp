@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tfujiwar <tfujiwar@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: t.fuji <t.fuji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 11:20:23 by tfujiwar          #+#    #+#             */
-/*   Updated: 2023/02/09 16:33:55 by tfujiwar         ###   ########.fr       */
+/*   Updated: 2023/02/10 10:38:42 by t.fuji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,14 @@ Account::Account( int initial_deposit ) : _amount(initial_deposit), _nbDeposits(
 	std::cout << "amount:" << _amount << ";";
 	std::cout << "created" << std::endl;
 };
+
+Account::Account() : _amount(0), _nbDeposits(0), _nbWithdrawals(0) {
+	_accountIndex = _nbAccounts++;
+	_displayTimestamp();
+	std::cout << " index:" << _accountIndex << ";";
+	std::cout << "amount:" << _amount << ";";
+	std::cout << "created" << std::endl;
+}
 
 Account::~Account() {
 	_totalAmount -= _amount;
