@@ -1,4 +1,4 @@
-NAME		=	account
+NAME		=	ex00
 
 SRC_DIR		=	src
 OBJ_DIR		=	obj
@@ -12,7 +12,10 @@ CC			=	c++
 CFLAGS		=	-Wall -Wextra -Werror -std=c++98
 RM			=	rm
 
-SRCS		=	$(SRC_DIR)/
+SRCS		=	$(SRC_DIR)/main.cpp \
+				$(SRC_DIR)/Zombie.cpp \
+				$(SRC_DIR)/newZombie.cpp \
+				$(SRC_DIR)/randomChump.cpp
 OBJS		=	$(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 DEPS		=	$(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.d)
 .PHONY: $(DEPS)

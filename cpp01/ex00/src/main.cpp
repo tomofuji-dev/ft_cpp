@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: t.fuji <t.fuji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/10 10:41:56 by t.fuji            #+#    #+#             */
-/*   Updated: 2023/02/10 11:10:30 by t.fuji           ###   ########.fr       */
+/*   Created: 2023/02/10 11:01:43 by t.fuji            #+#    #+#             */
+/*   Updated: 2023/02/10 11:20:56 by t.fuji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "Zombie.hpp"
 
-#include<string>
+int main() {
+	Zombie	z("stack");
+	z.announce();
+	
+	Zombie *heap = newZombie("heap");
+	heap->announce();
+	delete heap;
 
-class Zombie {
-
-public:
-
-	Zombie();
-	Zombie(std::string);
-	Zombie(Zombie const & src);
-	~Zombie();
-	Zombie&	operator=(Zombie const &rhs);
-
-	void		announce() const;
-	std::string	getName() const;
-
-private:
-
-	std::string	_name;
-
-};
-
-Zombie* newZombie( std::string name );
-void 	randomChump( std::string name );
+	randomChump("randomChump");
+	return (0);
+}
