@@ -6,7 +6,7 @@
 /*   By: t.fuji <t.fuji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 11:01:43 by t.fuji            #+#    #+#             */
-/*   Updated: 2023/02/10 11:54:10 by t.fuji           ###   ########.fr       */
+/*   Updated: 2023/02/10 11:58:04 by t.fuji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ int main() {
 
 __attribute__((destructor))
 static void destructor() {
-	system("leaks -q ex00");
+	system("leaks -q exe");
 }
