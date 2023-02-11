@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: t.fuji <t.fuji@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tfujiwar <tfujiwar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 13:36:57 by t.fuji            #+#    #+#             */
-/*   Updated: 2023/02/10 14:30:39 by t.fuji           ###   ########.fr       */
+/*   Updated: 2023/02/11 13:09:21 by tfujiwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ public:
 	void		attack() const;
 	std::string	getName() const;
 	Weapon*		getWeapon() const;
-	void		setWeapon(Weapon* weapon);
-	void		setWeapon(Weapon weapon);
+	void		setWeapon(Weapon& weapon);
 
 private:
 	std::string _name;

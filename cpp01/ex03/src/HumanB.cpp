@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: t.fuji <t.fuji@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tfujiwar <tfujiwar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 13:42:34 by t.fuji            #+#    #+#             */
-/*   Updated: 2023/02/10 14:42:57 by t.fuji           ###   ########.fr       */
+/*   Updated: 2023/02/11 13:11:13 by tfujiwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,6 @@ Weapon*	HumanB::getWeapon() const {
 	return _weapon;
 }
 
-void	HumanB::setWeapon(Weapon* weapon) {
-	_weapon = weapon;
-}
-
-void	HumanB::setWeapon(Weapon weapon) {
+void	HumanB::setWeapon(Weapon& weapon) {
 	_weapon = &weapon;
 }
