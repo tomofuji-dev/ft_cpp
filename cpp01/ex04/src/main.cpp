@@ -6,7 +6,7 @@
 /*   By: tfujiwar <tfujiwar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 10:16:54 by tfujiwar          #+#    #+#             */
-/*   Updated: 2023/02/11 13:03:06 by tfujiwar         ###   ########.fr       */
+/*   Updated: 2023/02/11 16:17:56 by tfujiwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,9 @@
 #define ERR_QUERY	"query must not be empty"
 #define ERR_OPEN	"cannot open file"
 
-#define TEXT_RED	"\033[1;31m"
-#define TEXT_YELLOW	"\033[1;33m"
+#define R			"\033[1;31m"
+#define Y			"\033[1;33m"
+#define E			"\033[00m"
 
 std::string	read_file(const std::string fname) {
 	std::ifstream is(fname);
@@ -74,7 +75,7 @@ void	replace(const std::string fname, \
 int main(int argc, char *argv[]) {
 	try {
 		if (argc != N_ARGS) {
-			std::cout << TEXT_YELLOW << USAGE << TEXT_YELLOW << std::endl;
+			std::cout << Y << USAGE << E << std::endl;
 			throw std::string(ERR_ARGC);
 		}
 		const std::string fname(argv[FNAME]);
@@ -87,10 +88,10 @@ int main(int argc, char *argv[]) {
 		return SUCCESS;
 	}
 	catch (const std::string& e) {
-		std::cerr << TEXT_RED <<  e << TEXT_RED << std::endl;
+		std::cerr << R <<  e << E << std::endl;
 	}
 	catch (const std::exception& e) {
-        std::cerr << TEXT_RED << e.what() << TEXT_RED << std::endl;
+        std::cerr << R << e.what() << E << std::endl;
 	}
 	return FAILURE;
 }
