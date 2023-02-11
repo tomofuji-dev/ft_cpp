@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   .hpp                                               :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: t.fuji <t.fuji@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tfujiwar <tfujiwar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 10:41:56 by t.fuji            #+#    #+#             */
-/*   Updated: 2023/02/10 13:32:41 by t.fuji           ###   ########.fr       */
+/*   Updated: 2023/02/11 16:03:06 by tfujiwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-class className {
+#include <string>
+
+class Harl {
 
 public:
 
-	className();
-	className(className const &src);
-	~className();
-	className&	operator=(className const &rhs);
+	Harl();
+	~Harl();
+
+	void complain(std::string level);
 
 private:
 
+	void debug();
+	void info();
+	void warning();
+	void error();
+	void usage();
 };
