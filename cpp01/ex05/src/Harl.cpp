@@ -6,7 +6,7 @@
 /*   By: tfujiwar <tfujiwar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 15:30:04 by tfujiwar          #+#    #+#             */
-/*   Updated: 2023/02/11 16:28:30 by tfujiwar         ###   ########.fr       */
+/*   Updated: 2023/02/11 16:38:53 by tfujiwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,23 +30,23 @@ Harl::~Harl() {
 }
 
 void	Harl::debug() {
-	std::cout << Y << "[debug] " << E << MSG_DEBUG << std::endl;
+	std::cout << Y << "[debug]\n" << E << MSG_DEBUG << std::endl;
 }
 
 void	Harl::info() {
-	std::cout << Y << "[info] " << E << MSG_INFO << std::endl;
+	std::cout << Y << "[info]\n" << E << MSG_INFO << std::endl;
 }
 
 void	Harl::warning() {
-	std::cout << Y << "[warning] " << E << MSG_WARN << std::endl;
+	std::cout << Y << "[warning]\n" << E << MSG_WARN << std::endl;
 }
 
 void	Harl::error() {
-	std::cout << Y << "[error] " << E << MSG_ERR << std::endl;
+	std::cout << Y << "[error]\n" << E << MSG_ERR << std::endl;
 }
 
 void	Harl::usage() {
-	std::cout << R << "[usage] " << USAGE << E << std::endl;
+	std::cout << R << "[usage]\n" << USAGE << E << std::endl;
 }
 
 void	Harl::complain(std::string level) {

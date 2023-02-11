@@ -6,7 +6,7 @@
 /*   By: tfujiwar <tfujiwar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 15:52:04 by tfujiwar          #+#    #+#             */
-/*   Updated: 2023/02/11 16:14:13 by tfujiwar         ###   ########.fr       */
+/*   Updated: 2023/02/11 16:36:35 by tfujiwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ int main(int argc, char *argv[]) {
 		std::cerr << R << "invalid argc" << E << std::endl;
 		return FAILURE;
 	}
-	harl.complain(argv[1]);
+	harl.filter(argv[1]);
 	return SUCCESS;
 }

@@ -6,7 +6,7 @@
 /*   By: tfujiwar <tfujiwar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 10:41:56 by t.fuji            #+#    #+#             */
-/*   Updated: 2023/02/11 16:03:06 by tfujiwar         ###   ########.fr       */
+/*   Updated: 2023/02/11 16:34:07 by tfujiwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ public:
 	Harl();
 	~Harl();
 
-	void complain(std::string level);
+	void	complain(std::string level);
+	void	filter(std::string level);
 
 private:
 
