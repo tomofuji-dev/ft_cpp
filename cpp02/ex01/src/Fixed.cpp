@@ -6,7 +6,7 @@ Fixed::Fixed() : _bits(0) {
 }
 
 Fixed::Fixed(int const val) {
-	std::cout << "Default constructor with int arg called" << std::endl;
+	std::cout << "Int constructor called" << std::endl;
 	int lshift = val << fracBit;
 	int reshift = lshift >> fracBit;
 	if (reshift != val) {
@@ -18,7 +18,7 @@ Fixed::Fixed(int const val) {
 }
 
 Fixed::Fixed(float const val) {
-	std::cout << "Default constructor with float arg called" << std::endl;
+	std::cout << "Float constructor called" << std::endl;
 	double converter = (double)(1 << fracBit);
 	double db = val * (converter);
 	if (db >= INT_MAX) {
@@ -48,7 +48,6 @@ Fixed&	Fixed::operator=(const Fixed &rhs) {
 }
 
 int	Fixed::getRawBits() const {
-	std::cout << "getRawBits member function called" << std::endl;
 	return _bits;
 }
 
