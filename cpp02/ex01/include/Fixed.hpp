@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   .hpp                                               :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: t.fuji <t.fuji@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tfujiwar <tfujiwar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 10:41:56 by t.fuji            #+#    #+#             */
-/*   Updated: 2023/02/10 13:32:41 by t.fuji           ###   ########.fr       */
+/*   Updated: 2023/02/13 14:06:28 by tfujiwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-class className {
+# include <iostream>
+
+class Fixed {
 
 public:
 
-	className();
-	className(className const &src);
-	~className();
-	className&	operator=(className const &rhs);
+	Fixed();
+	Fixed(int const val);
+	Fixed(float const val);
+	Fixed(const Fixed &src);
+	~Fixed();
+	Fixed&	operator=(const Fixed &rhs);
+
+	int		getRawBits() const;
+	void	setRawBits(int const raw);
+
+	float	toFloat() const;
+	int		toInt() const;
 
 private:
 
+	int					_bits;
+	static const int	fracBit = 8;
+
 };
+
+std::ostream& operator<<(std::ostream& stream, const Fixed& value);
