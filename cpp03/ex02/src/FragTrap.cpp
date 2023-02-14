@@ -1,4 +1,4 @@
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 #include <iostream>
 
 #define R		"\033[31m"
@@ -8,40 +8,40 @@
 #define GRAY	"\033[m"
 #define E		"\033[00m"
 
-ScavTrap::ScavTrap(): ClapTrap() {
+FragTrap::FragTrap(): ClapTrap() {
 	_name = "";
 	_hp = 100;
-	_energy = 50;
-	_damage = 20;
-	std::cout << "ScavTrap()" << std::endl;
+	_energy = 100;
+	_damage = 30;
+	std::cout << "FragTrap()" << std::endl;
 	std::cout << *this << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name): ClapTrap(name) {
+FragTrap::FragTrap(std::string name): ClapTrap(name) {
 	_name = name;
 	_hp = 100;
-	_energy = 50;
-	_damage = 20;
-	std::cout << "ScavTrap(name)" << std::endl;
+	_energy = 100;
+	_damage = 30;
+	std::cout << "FragTrap(name)" << std::endl;
 	std::cout << *this << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &src): ClapTrap(src) {
+FragTrap::FragTrap(const FragTrap &src): ClapTrap(src) {
 	_name = src._name;
 	_hp = src._hp;
 	_energy = src._energy;
 	_damage = src._damage;
-	std::cout << "ScavTrap(src)" << std::endl;
+	std::cout << "FragTrap(src)" << std::endl;
 	std::cout << *this << std::endl;
 }
 
-ScavTrap::~ScavTrap(){
-	std::cout << "~ScavTrap()" << std::endl;
+FragTrap::~FragTrap(){
+	std::cout << "~FragTrap()" << std::endl;
 	std::cout << *this << std::endl;
 }
 
-ScavTrap&	ScavTrap::operator=(const ScavTrap &rhs){
-	std::cout << "ScavTrap oerator=" << std::endl;
+FragTrap&	FragTrap::operator=(const FragTrap &rhs){
+	std::cout << "FragTrap oerator=" << std::endl;
 	_name = rhs._name;
 	_hp = rhs._hp;
 	_energy = rhs._energy;
@@ -50,10 +50,10 @@ ScavTrap&	ScavTrap::operator=(const ScavTrap &rhs){
 	return (*this);
 }
 
-void ScavTrap::attack(const std::string& target) {
+void FragTrap::attack(const std::string& target) {
 	if (_hp == 0 || _energy == 0) {
 		std::cout << R
-			<< "[ScavTrap] " << _name << ":"
+			<< "[FragTrap] " << _name << ":"
 			<< " tempted to attack " << target
 			<< " but it has no hp or energy"
 			<< E << std::endl;
@@ -61,22 +61,22 @@ void ScavTrap::attack(const std::string& target) {
 		return ;
 	}
 	std::cout << Y
-		<< "[ScavTrap] " << _name << ":"
+		<< "[FragTrap] " << _name << ":"
 		<< " attack " << target
 		<< " and caused " << _damage << " damage"
 		<< E << std::endl;
 }
 
-void	ScavTrap::guardGate() {
+void	FragTrap::highFivesGuys() {
 	std::cout << B
-		<< "[ScavTrap] " << _name << ":"
-		<< " guardGate"
+		<< "[FragTrap] " << _name << ":"
+		<< " highFivesGuys"
 		<< E << std::endl;
 }
 
-std::ostream& operator<<(std::ostream& stream, const ScavTrap& value) {
+std::ostream& operator<<(std::ostream& stream, const FragTrap& value) {
 	return stream
-			<< "    [ScavTrap]"
+			<< "    [FragTrap]"
 			<< " name: " << value.get_name()
 			<< " hp: " << value.get_hp()
 			<< " energy: " << value.get_energy()

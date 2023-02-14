@@ -1,9 +1,9 @@
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main() {
-	ScavTrap a;
-	ScavTrap b("hoge");
-	ScavTrap c(b);
+	FragTrap a;
+	FragTrap b("hoge");
+	FragTrap c(b);
 	a = b;
 	a.attack("fuga");
 
@@ -16,5 +16,5 @@ int main() {
 	for (int i = 1; i < 4; i++) {
 		a.beRepaired(i * 40);
 	}
-	a.guardGate();
+	a.highFivesGuys();
 }
