@@ -13,7 +13,8 @@ CFLAGS		=	-Wall -Wextra -Werror -std=c++98
 RM			=	rm
 
 SRCS		=	$(SRC_DIR)/main.cpp \
-				$(SRC_DIR)/ClapTrap.cpp
+				$(SRC_DIR)/ClapTrap.cpp \
+				$(SRC_DIR)/ScavTrap.cpp
 OBJS		=	$(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 DEPS		=	$(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.d)
 .PHONY: $(DEPS)

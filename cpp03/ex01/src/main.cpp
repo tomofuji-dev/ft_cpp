@@ -1,19 +1,19 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main() {
-	ClapTrap a;
-	ClapTrap b("hoge");
-	ClapTrap c(b);
+	ScavTrap a;
+	ScavTrap b("hoge");
+	ScavTrap c(b);
 	a = b;
 	a.attack("fuga");
 
 	for (int i = 1; i < 4; i++) {
-		a.takeDamage(i * 4);
+		a.takeDamage(i * 40);
 	}
 
 	a.attack("fuga");
 
 	for (int i = 1; i < 4; i++) {
-		a.beRepaired(i * 4);
+		a.beRepaired(i * 40);
 	}
 }
