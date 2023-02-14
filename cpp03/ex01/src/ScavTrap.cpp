@@ -10,18 +10,18 @@
 
 ScavTrap::ScavTrap(): ClapTrap() {
 	_name = "";
-	_hp = 100;
-	_energy = 50;
-	_damage = 20;
+	_hp = ScavTrap::init_hp;
+	_energy = ScavTrap::init_energy;
+	_damage = ScavTrap::init_damage;
 	std::cout << "ScavTrap()" << std::endl;
 	std::cout << *this << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name): ClapTrap(name) {
 	_name = name;
-	_hp = 100;
-	_energy = 50;
-	_damage = 20;
+	_hp = ScavTrap::init_hp;
+	_energy = ScavTrap::init_energy;
+	_damage = ScavTrap::init_damage;
 	std::cout << "ScavTrap(name)" << std::endl;
 	std::cout << *this << std::endl;
 }

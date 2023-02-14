@@ -15,6 +15,10 @@ public:
 	unsigned int	get_hp() const;
 	unsigned int	get_energy() const;
 	unsigned int	get_damage() const;
+
+	static const unsigned int init_hp = 10;
+	static const unsigned int init_energy = 10;
+	static const unsigned int init_damage = 0;
 	
 	void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
