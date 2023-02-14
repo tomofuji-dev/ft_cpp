@@ -12,6 +12,10 @@ public:
 	~FragTrap();
 	FragTrap&	operator=(const FragTrap &rhs);
 
+	static const unsigned int init_hp = 100;
+	static const unsigned int init_energy = 100;
+	static const unsigned int init_damage = 30;
+
 	void attack(const std::string& target);
 	void highFivesGuys();
 };

@@ -8,12 +8,18 @@
 #define GRAY	"\033[m"
 #define E		"\033[00m"
 
-ClapTrap::ClapTrap(): _name(""), _hp(10), _energy(10), _damage(0){
+ClapTrap::ClapTrap(): 
+	_name(""), _hp(ClapTrap::init_hp), 
+	_energy(ClapTrap::init_energy), _damage(ClapTrap::init_damage)
+{
 	std::cout << "ClapTrap()" << std::endl;
 	std::cout << *this << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _hp(10), _energy(10), _damage(0){
+ClapTrap::ClapTrap(std::string name) : 
+	_name(name), _hp(ClapTrap::init_hp), 
+	_energy(ClapTrap::init_energy), _damage(ClapTrap::init_damage)
+{
 	std::cout << "ClapTrap(name)" << std::endl;
 	std::cout << *this << std::endl;
 }

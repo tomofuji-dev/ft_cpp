@@ -10,18 +10,18 @@
 
 FragTrap::FragTrap(): ClapTrap() {
 	_name = "";
-	_hp = 100;
-	_energy = 100;
-	_damage = 30;
+	_hp = FragTrap::init_hp;
+	_energy = FragTrap::init_energy;
+	_damage = FragTrap::init_damage;
 	std::cout << "FragTrap()" << std::endl;
 	std::cout << *this << std::endl;
 }
 
 FragTrap::FragTrap(std::string name): ClapTrap(name) {
 	_name = name;
-	_hp = 100;
-	_energy = 100;
-	_damage = 30;
+	_hp = FragTrap::init_hp;
+	_energy = FragTrap::init_energy;
+	_damage = FragTrap::init_damage;
 	std::cout << "FragTrap(name)" << std::endl;
 	std::cout << *this << std::endl;
 }
