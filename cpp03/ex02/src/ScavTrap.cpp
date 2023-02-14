@@ -2,7 +2,6 @@
 #include <iostream>
 
 ScavTrap::ScavTrap(): ClapTrap() {
-	_name = "";
 	_hp = ScavTrap::init_hp;
 	_energy = ScavTrap::init_energy;
 	_damage = ScavTrap::init_damage;
@@ -11,7 +10,6 @@ ScavTrap::ScavTrap(): ClapTrap() {
 }
 
 ScavTrap::ScavTrap(std::string name): ClapTrap(name) {
-	_name = name;
 	_hp = ScavTrap::init_hp;
 	_energy = ScavTrap::init_energy;
 	_damage = ScavTrap::init_damage;
@@ -20,7 +18,6 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name) {
 }
 
 ScavTrap::ScavTrap(const ScavTrap &src): ClapTrap(src) {
-	_name = src._name;
 	_hp = src._hp;
 	_energy = src._energy;
 	_damage = src._damage;
@@ -70,8 +67,8 @@ void	ScavTrap::guardGate() {
 std::ostream& operator<<(std::ostream& stream, const ScavTrap& value) {
 	return stream
 			<< "    [ScavTrap]"
-			<< " name: " << value.get_name()
-			<< " hp: " << value.get_hp()
-			<< " energy: " << value.get_energy()
-			<< " damage: " << value.get_damage();
+			<< " | name: " << value.get_name()
+			<< " | hp: " << value.get_hp()
+			<< " | energy: " << value.get_energy()
+			<< " | damage: " << value.get_damage();
 }

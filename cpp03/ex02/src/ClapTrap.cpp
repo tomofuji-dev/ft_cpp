@@ -104,8 +104,8 @@ void ClapTrap::beRepaired(unsigned int amount) {
 std::ostream& operator<<(std::ostream& stream, const ClapTrap& value) {
 	return stream
 			<< "    [ClapTrap]"
-			<< " name: " << value.get_name()
-			<< " hp: " << value.get_hp()
-			<< " energy: " << value.get_energy()
-			<< " damage: " << value.get_damage();
+			<< " | name: " << value.get_name()
+			<< " | hp: " << value.get_hp()
+			<< " | energy: " << value.get_energy()
+			<< " | damage: " << value.get_damage();
 }
