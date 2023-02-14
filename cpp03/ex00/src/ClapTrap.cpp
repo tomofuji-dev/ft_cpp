@@ -57,7 +57,7 @@ unsigned int	ClapTrap::get_damage() const {
 
 void ClapTrap::attack(const std::string& target) {
 	if (_hp == 0 || _energy == 0) {
-		std::cout << Y
+		std::cout << R
 			<< "[ClapTrap] " << _name << ":"
 			<< " tempted to attack " << target
 			<< " but it has no hp or energy"

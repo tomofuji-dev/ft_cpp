@@ -11,6 +11,8 @@ int main() {
 		a.takeDamage(i * 4);
 	}
 
+	a.attack("fuga");
+
 	for (int i = 1; i < 4; i++) {
 		a.beRepaired(i * 4);
 	}
