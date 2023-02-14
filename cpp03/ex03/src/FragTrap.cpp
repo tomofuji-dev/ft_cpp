@@ -2,7 +2,6 @@
 #include <iostream>
 
 FragTrap::FragTrap(): ClapTrap() {
-	_name = "";
 	_hp = FragTrap::init_hp;
 	_energy = FragTrap::init_energy;
 	_damage = FragTrap::init_damage;
@@ -11,7 +10,6 @@ FragTrap::FragTrap(): ClapTrap() {
 }
 
 FragTrap::FragTrap(std::string name): ClapTrap(name) {
-	_name = name;
 	_hp = FragTrap::init_hp;
 	_energy = FragTrap::init_energy;
 	_damage = FragTrap::init_damage;
@@ -20,7 +18,6 @@ FragTrap::FragTrap(std::string name): ClapTrap(name) {
 }
 
 FragTrap::FragTrap(const FragTrap &src): ClapTrap(src) {
-	_name = src._name;
 	_hp = src._hp;
 	_energy = src._energy;
 	_damage = src._damage;
@@ -70,8 +67,8 @@ void	FragTrap::highFivesGuys() {
 std::ostream& operator<<(std::ostream& stream, const FragTrap& value) {
 	return stream
 			<< "    [FragTrap]"
-			<< " name: " << value.get_name()
-			<< " hp: " << value.get_hp()
-			<< " energy: " << value.get_energy()
-			<< " damage: " << value.get_damage();
+			<< " | name: " << value.get_name()
+			<< " | hp: " << value.get_hp()
+			<< " | energy: " << value.get_energy()
+			<< " | damage: " << value.get_damage();
 }

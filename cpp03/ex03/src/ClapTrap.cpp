@@ -13,8 +13,8 @@ ClapTrap::ClapTrap(std::string name) :
 	_name(name), _hp(ClapTrap::init_hp), 
 	_energy(ClapTrap::init_energy), _damage(ClapTrap::init_damage)
 {
-		std::cout << "ClapTrap(name)" << std::endl;
-		std::cout << *this << std::endl;
+	std::cout << "ClapTrap(name)" << std::endl;
+	std::cout << *this << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &src):
@@ -104,8 +104,8 @@ void ClapTrap::beRepaired(unsigned int amount) {
 std::ostream& operator<<(std::ostream& stream, const ClapTrap& value) {
 	return stream
 			<< "    [ClapTrap]"
-			<< " name: " << value.get_name()
-			<< " hp: " << value.get_hp()
-			<< " energy: " << value.get_energy()
-			<< " damage: " << value.get_damage();
+			<< " | name: " << value.get_name()
+			<< " | hp: " << value.get_hp()
+			<< " | energy: " << value.get_energy()
+			<< " | damage: " << value.get_damage();
 }
