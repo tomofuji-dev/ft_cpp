@@ -1,15 +1,15 @@
 #pragma once
 #include <string>
 
-class Amateria {
+class AMateria {
 
 public:
 
-	Amateria();
+	AMateria();
 	AMateria(const std::string& type);
-	Amateria(const Amateria& src);
-	~Amateria();
-	Amateria&	operator=(const Amateria& rhs);
+	AMateria(const AMateria& src);
+	~AMateria();
+	AMateria&	operator=(const AMateria& rhs);
 
 protected:
 
