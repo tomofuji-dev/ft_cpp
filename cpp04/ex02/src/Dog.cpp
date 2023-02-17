@@ -5,7 +5,7 @@ Dog::Dog() : Animal("Dog"), brain_(new Brain()) {
 	std::cout << "Dog()" << std::endl;
 }
 
-Dog::Dog(const Dog &src) : Animal(src) {
+Dog::Dog(const Dog& src) : Animal(src) {
 	std::cout << "Dog(src)" << std::endl;
 	*this = src;
 }
@@ -15,7 +15,7 @@ Dog::~Dog(){
 	delete brain_;
 }
 
-Dog&	Dog::operator=(const Dog &rhs){
+Dog&	Dog::operator=(const Dog& rhs){
 	Animal::type_ = rhs.Animal::type_;
 	brain_ = rhs.brain_;
 	return *this;

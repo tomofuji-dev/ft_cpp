@@ -13,9 +13,9 @@ public:
 
 	WrongAnimal();
 	WrongAnimal(const std::string type);
-	WrongAnimal(const WrongAnimal &src);
+	WrongAnimal(const WrongAnimal& src);
 	~WrongAnimal();
-	WrongAnimal&	operator=(const WrongAnimal &rhs);
+	WrongAnimal&	operator=(const WrongAnimal& rhs);
 
 	void 				makeSound() const;
 	const std::string&	getType() const;

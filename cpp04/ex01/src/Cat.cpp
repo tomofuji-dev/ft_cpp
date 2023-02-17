@@ -5,7 +5,7 @@ Cat::Cat() : Animal("Cat"), brain_(new Brain()){
 	std::cout << "Cat()" << std::endl;
 }
 
-Cat::Cat(const Cat &src) : Animal(src) {
+Cat::Cat(const Cat& src) : Animal(src) {
 	std::cout << "Cat(src)" << std::endl;
 	*this = src;
 }
@@ -15,7 +15,7 @@ Cat::~Cat(){
 	delete brain_;
 }
 
-Cat&	Cat::operator=(const Cat &rhs){
+Cat&	Cat::operator=(const Cat& rhs){
 	Animal::type_ = rhs.Animal::type_;
 	brain_ = rhs.brain_;
 	return *this;

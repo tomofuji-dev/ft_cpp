@@ -9,7 +9,7 @@ Animal::Animal(const std::string type) : type_(type) {
 	std::cout << "Animal(type)" << std::endl;
 }
 
-Animal::Animal(const Animal &src) : type_(src.type_) {
+Animal::Animal(const Animal& src) : type_(src.type_) {
 	std::cout << "Animal(src)" << std::endl;
 }
 
@@ -17,7 +17,7 @@ Animal::~Animal() {
 	std::cout << "~Animal()" << std::endl;
 }
 
-Animal&	Animal::operator=(const Animal &rhs) {
+Animal&	Animal::operator=(const Animal& rhs) {
 	type_ = rhs.type_;
 	return *this;
 }

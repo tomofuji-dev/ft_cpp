@@ -9,7 +9,7 @@ WrongAnimal::WrongAnimal(const std::string type) : type_(type) {
 	std::cout << "WrongAnimal(type)" << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &src) : type_(src.type_) {
+WrongAnimal::WrongAnimal(const WrongAnimal& src) : type_(src.type_) {
 	std::cout << "WrongAnimal(src)" << std::endl;
 }
 
@@ -17,7 +17,7 @@ WrongAnimal::~WrongAnimal() {
 	std::cout << "~WrongAnimal()" << std::endl;
 }
 
-WrongAnimal&	WrongAnimal::operator=(const WrongAnimal &rhs) {
+WrongAnimal&	WrongAnimal::operator=(const WrongAnimal& rhs) {
 	type_ = rhs.type_;
 	return *this;
 }
