@@ -2,7 +2,7 @@
 #include <iostream>
 
 DiamondTrap::DiamondTrap():
-	ClapTrap("NONAME_crap_name"), FragTrap(), ScavTrap(), _name("NONAME")
+	ClapTrap("NONAME_clap_name"), FragTrap(), ScavTrap(), _name("NONAME")
 {
 	_hp = DiamondTrap::init_hp;
 	_energy = DiamondTrap::init_energy;
@@ -12,7 +12,7 @@ DiamondTrap::DiamondTrap():
 }
 
 DiamondTrap::DiamondTrap(std::string name):
-	ClapTrap(name + "_crap_name"), FragTrap(name), ScavTrap(name), _name(name)
+	ClapTrap(name + "_clap_name"), FragTrap(name), ScavTrap(name), _name(name)
 {
 	_hp = DiamondTrap::init_hp;
 	_energy = DiamondTrap::init_energy;
@@ -39,6 +39,7 @@ DiamondTrap::~DiamondTrap() {
 DiamondTrap&	DiamondTrap::operator=(const DiamondTrap &rhs){
 	std::cout << "DiamondTrap oerator=" << std::endl;
 	_name = rhs._name;
+	ClapTrap::_name = rhs.ClapTrap::_name;
 	_hp = rhs._hp;
 	_energy = rhs._energy;
 	_damage = rhs._damage;
@@ -60,7 +61,7 @@ void DiamondTrap::whoAmI() const {
 		<< "[DiamondTrap] " << _name << ":"
 		<< " whoAmI\n"
 		<< "    diamond name: " << _name 
-		<< "    claptrap name: " << this->ClapTrap::_name
+		<< "    claptrap name: " << ClapTrap::_name
 		<< E << std::endl;
 }
 
