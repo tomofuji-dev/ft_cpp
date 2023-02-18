@@ -1,8 +1,9 @@
 #pragma once
 #include <string>
 #include "AMateria.hpp"
+#include "IMateriaSource.hpp"
 
-class MateriaSource {
+class MateriaSource : public IMateriaSource {
 
 public:
 
@@ -11,12 +12,14 @@ public:
 	~MateriaSource();
 	MateriaSource&	operator=(const MateriaSource& rhs);
 
-	virtual void learnMateria(AMateria*) = 0;
-	virtual AMateria* createMateria(std::string const & type) = 0;
+	void learnMateria(AMateria* materia);
+	AMateria* createMateria(std::string const & type);
 
 private:
 
 	const static size_t nSlots_ = 4;
-	AMateria* MateriaSourceSlots[nSlots_];
+	AMateria* materiaSourceSlots_[nSlots_];
 
+	size_t get_empty_index() const;
+	size_t search_index(const std::string& type) const;
 };

@@ -1,6 +1,7 @@
 #include "Character.hpp"
 #include "Color.hpp"
 #include <iostream>
+#include <cstdlib>
 
 Character::Character() : name_("") {
 	std::cout << "Character()" << std::endl;
@@ -31,22 +32,18 @@ Character::~Character() {
 Character&	Character::operator=(const Character& rhs) {
 	name_ = rhs.name_;
 	for (size_t i = 0; i < nSlots_; i++) {
-		characterSlots_[i] = rhs.characterSlots_[i]->clone();
+		delete characterSlots_[i];
+		if (rhs.characterSlots_[i])
+			characterSlots_[i] = rhs.characterSlots_[i]->clone();
+		else
+			characterSlots_[i] = nullptr;
+		std::cout << Y << "this[i]: " << characterSlots_[i] << ", rhs[i]: " << rhs.characterSlots_[i] << E << std::endl;
 	}
 	return *this;
 }
 
 std::string const& Character::getName() const {
 	return name_;
-}
-
-size_t Character::get_empty_index() const {
-	size_t i = 0;
-	for (; i < nSlots_; i++) {
-		if (characterSlots_[i] == nullptr)
-			break ;
-	}
-	return i;
 }
 
 void Character::equip(AMateria* m) {
@@ -71,9 +68,22 @@ void Character::unequip(int idx) {
 }
 
 void Character::use(int idx, ICharacter& target) {
+	if (!(0 <= idx && (size_t)idx < nSlots_)) {
+		std::cout << R << "[ERROR] idx is out of range" << E << std::endl;
+		return ;
+	}
 	if (characterSlots_[idx] == nullptr) {
 		std::cout << R << "[ERROR] " << name_ << "\'s slot[" << idx << "] is empty" << E << std::endl;
 		return ;
 	}
 	characterSlots_[idx]->use(target);
+}
+
+size_t Character::get_empty_index() const {
+	size_t i = 0;
+	for (; i < nSlots_; i++) {
+		if (characterSlots_[i] == nullptr)
+			break ;
+	}
+	return i;
 }
