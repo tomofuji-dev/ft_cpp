@@ -22,10 +22,6 @@ public:
 	unsigned int	get_hp() const;
 	unsigned int	get_energy() const;
 	unsigned int	get_damage() const;
-
-	static const unsigned int init_hp = 10;
-	static const unsigned int init_energy = 10;
-	static const unsigned int init_damage = 0;
 	
 	void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
@@ -36,6 +32,10 @@ protected:
 	unsigned int	_hp;
 	unsigned int	_energy;
 	unsigned int	_damage;
+
+	static const unsigned int init_hp = 10;
+	static const unsigned int init_energy = 10;
+	static const unsigned int init_damage = 0;
 };
 
 std::ostream& operator<<(std::ostream& stream, const ClapTrap& value);

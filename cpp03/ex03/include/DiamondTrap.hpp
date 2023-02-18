@@ -13,10 +13,6 @@ public:
 	~DiamondTrap();
 	DiamondTrap&	operator=(const DiamondTrap &rhs);
 
-	static const unsigned int init_hp = FragTrap::init_hp;
-	static const unsigned int init_energy = ScavTrap::init_energy;
-	static const unsigned int init_damage = FragTrap::init_damage;
-
 	std::string		get_name() const;
 	void attack(const std::string& target);
 	void whoAmI() const;
@@ -24,6 +20,10 @@ public:
 private:
 
 	std::string _name;
+	static const unsigned int init_hp = FragTrap::init_hp;
+	static const unsigned int init_energy = ScavTrap::init_energy;
+	static const unsigned int init_damage = FragTrap::init_damage;
+
 };
 
 std::ostream& operator<<(std::ostream& stream, const DiamondTrap& value);

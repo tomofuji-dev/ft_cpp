@@ -12,12 +12,15 @@ public:
 	~FragTrap();
 	FragTrap&	operator=(const FragTrap &rhs);
 
+	void attack(const std::string& target);
+	void highFivesGuys();
+
+protected:
+
 	static const unsigned int init_hp = 100;
 	static const unsigned int init_energy = 100;
 	static const unsigned int init_damage = 30;
 
-	void attack(const std::string& target);
-	void highFivesGuys();
 };
 
 std::ostream& operator<<(std::ostream& stream, const FragTrap& value);
