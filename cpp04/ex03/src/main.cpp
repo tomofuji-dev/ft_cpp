@@ -3,7 +3,7 @@
 
 int main()
 {
-	Character* bob = new Character("bob");
+	ICharacter* bob = new Character("bob");
 	AMateria* cure1 = new Cure();
 	AMateria* cure2 = new Cure();
 	AMateria* cure3 = new Cure();
@@ -21,6 +21,10 @@ int main()
 	bob->equip(cure3);
 	bob->unequip(0);
 	bob->equip(cure1);
+	bob->use(0, *bob);
+	bob->use(1, *bob);
+	bob->use(3, *bob);
+	bob->use(2, *bob);
 	delete bob;
 }
 

@@ -3,7 +3,7 @@
 #include "ICharacter.hpp"
 #include "AMateria.hpp"
 
-class Character : ICharacter {
+class Character : public ICharacter {
 
 public:
 
