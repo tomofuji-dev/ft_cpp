@@ -50,11 +50,11 @@ size_t Character::get_empty_index() const {
 }
 
 void Character::equip(AMateria* m) {
-	std::cout << "character " << name_ << " equip " << m->getType() << std::endl;
+	std::cout << name_ << " equip " << m->getType() << std::endl;
 	const size_t idx = get_empty_index();
 
 	if (idx == nSlots_) {
-		std::cout << R << "[ERROR] character " << name_ << "\'s slot is full" << E << std::endl;
+		std::cout << R << "[ERROR] " << name_ << "\'s slot is full" << E << std::endl;
 		return ;
 	}
 
@@ -62,9 +62,9 @@ void Character::equip(AMateria* m) {
 }
 
 void Character::unequip(int idx) {
-	std::cout << "character " << name_ << " unequip " << idx << " slot" << std::endl;
+	std::cout << name_ << " unequip " << idx << " slot" << std::endl;
 	if (characterSlots_[idx] == nullptr) {
-		std::cout << R << "[ERROR] character " << name_ << "\'s slot[" << idx << "] is empty" << E << std::endl;
+		std::cout << R << "[ERROR] " << name_ << "\'s slot[" << idx << "] is empty" << E << std::endl;
 		return ;
 	}
 	characterSlots_[idx] = nullptr;
@@ -72,7 +72,7 @@ void Character::unequip(int idx) {
 
 void Character::use(int idx, ICharacter& target) {
 	if (characterSlots_[idx] == nullptr) {
-		std::cout << R << "[ERROR] character " << name_ << "\'s slot[" << idx << "] is empty" << E << std::endl;
+		std::cout << R << "[ERROR] " << name_ << "\'s slot[" << idx << "] is empty" << E << std::endl;
 		return ;
 	}
 	characterSlots_[idx]->use(target);
