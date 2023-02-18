@@ -2,16 +2,14 @@
 #include <iostream>
 
 ClapTrap::ClapTrap(): 
-	_name(""), _hp(ClapTrap::init_hp), 
-	_energy(ClapTrap::init_energy), _damage(ClapTrap::init_damage)
+	_name(""), _hp(init_hp), _energy(init_energy), _damage(init_damage)
 {
 	std::cout << "ClapTrap()" << std::endl;
 	std::cout << *this << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : 
-	_name(name), _hp(ClapTrap::init_hp), 
-	_energy(ClapTrap::init_energy), _damage(ClapTrap::init_damage)
+	_name(name), _hp(init_hp), _energy(init_energy), _damage(init_damage)
 {
 	std::cout << "ClapTrap(name)" << std::endl;
 	std::cout << *this << std::endl;

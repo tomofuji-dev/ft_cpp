@@ -2,17 +2,17 @@
 #include <iostream>
 
 FragTrap::FragTrap(): ClapTrap() {
-	_hp = FragTrap::init_hp;
-	_energy = FragTrap::init_energy;
-	_damage = FragTrap::init_damage;
+	_hp = init_hp;
+	_energy = init_energy;
+	_damage = init_damage;
 	std::cout << "FragTrap()" << std::endl;
 	std::cout << *this << std::endl;
 }
 
 FragTrap::FragTrap(std::string name): ClapTrap(name) {
-	_hp = FragTrap::init_hp;
-	_energy = FragTrap::init_energy;
-	_damage = FragTrap::init_damage;
+	_hp = init_hp;
+	_energy = init_energy;
+	_damage = init_damage;
 	std::cout << "FragTrap(name)" << std::endl;
 	std::cout << *this << std::endl;
 }

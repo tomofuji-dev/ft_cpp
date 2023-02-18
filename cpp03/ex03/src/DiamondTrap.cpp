@@ -4,9 +4,9 @@
 DiamondTrap::DiamondTrap():
 	ClapTrap("NONAME_clap_name"), FragTrap(), ScavTrap(), _name("NONAME")
 {
-	_hp = DiamondTrap::init_hp;
-	_energy = DiamondTrap::init_energy;
-	_damage = DiamondTrap::init_damage;
+	_hp = init_hp;
+	_energy = init_energy;
+	_damage = init_damage;
 	std::cout << "DiamondTrap()" << std::endl;
 	std::cout << *this << std::endl;
 }
@@ -14,9 +14,9 @@ DiamondTrap::DiamondTrap():
 DiamondTrap::DiamondTrap(std::string name):
 	ClapTrap(name + "_clap_name"), FragTrap(name), ScavTrap(name), _name(name)
 {
-	_hp = DiamondTrap::init_hp;
-	_energy = DiamondTrap::init_energy;
-	_damage = DiamondTrap::init_damage;
+	_hp = init_hp;
+	_energy = init_energy;
+	_damage = init_damage;
 	std::cout << "DiamondTrap(name)" << std::endl;
 	std::cout << *this << std::endl;
 }
