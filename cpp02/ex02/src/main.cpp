@@ -15,7 +15,8 @@ int main( void ) {
 
 
 	Fixed c;
-	Fixed const d( Fixed( 5.05f ) / Fixed( 2 ) );
+	Fixed d;
+	d = ( Fixed( 5.05f ) / Fixed( 2 ) );
 	std::cout << c << std::endl;
 	std::cout << --c << std::endl;
 	std::cout << c << std::endl;
@@ -23,5 +24,13 @@ int main( void ) {
 	std::cout << c << std::endl;
 	std::cout << d << std::endl;
 	std::cout << Fixed::min( c, d ) << std::endl;
+
+	try {
+		d = ( Fixed( 5.05f ) / Fixed( 0 ) );
+	}
+	catch(std::invalid_argument&) {
+		std::cerr << "divided by 0" << std::endl;
+		return 1;
+	}
 	return 0;
 }

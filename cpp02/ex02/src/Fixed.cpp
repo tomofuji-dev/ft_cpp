@@ -108,6 +108,10 @@ Fixed Fixed::operator*(const Fixed& rhs) {
 
 Fixed Fixed::operator/(const Fixed& rhs){
 	Fixed	f;
+
+	if (rhs.getRawBits() == 0) {
+		throw std::invalid_argument("Floating point exception");
+	}
 	f.setRawBits((this->getRawBits() << fracBit) / rhs.getRawBits());
 	return f;
 }
