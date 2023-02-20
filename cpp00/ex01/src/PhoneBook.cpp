@@ -19,13 +19,13 @@
 
 PhoneBook::PhoneBook(): latest_index(0) {
 	for (int i = 0; i < PHONEBOOK_LEN; i++) {
-		this->contacts[i] = Contact();
+		contacts[i] = Contact();
 	}
 }
 
 PhoneBook::PhoneBook(PhoneBook const & src): latest_index(src.latest_index) {
 	for (int i = 0; i < PHONEBOOK_LEN; i++) {
-		this->contacts[i] = src.contacts[i];
+		contacts[i] = src.contacts[i];
 	}
 }
 
@@ -34,15 +34,21 @@ PhoneBook::~PhoneBook() {
 
 PhoneBook &	PhoneBook::operator=(PhoneBook const &rhs) {
 	for (size_t i = 0; i < PHONEBOOK_LEN; i++) {
-		this->contacts[i] = rhs.contacts[i];
+		contacts[i] = rhs.contacts[i];
 	}
-	this->latest_index = rhs.latest_index;
+	latest_index = rhs.latest_index;
 	return *this;
+}
+
+static std::string truncate_str(std::string str) {
+	if (str.length() > WSIZE)
+		return (str.substr(0, WSIZE - 1) + ".");
+	return (str);
 }
 
 static	void	print_row(int n, std::string str[]) {
 	for (int i = 0; i < n; i++) {
-		std::cout << "|" << std::right << std::setw(WSIZE) << str[i];
+		std::cout << "|" << std::right << std::setw(WSIZE) << truncate_str(str[i]);
 	}
 	std::cout << "|" << std::endl;
 }
@@ -64,10 +70,10 @@ void	PhoneBook::prompt() {
 			continue ;
 		};
 		if (input == "ADD") {
-			this->add();
+			add();
 		}
 		else if (input == "SEARCH") {
-			this->search();
+			search();
 		}
 		else if (input == "EXIT") {
 			return ;
@@ -108,46 +114,42 @@ void	PhoneBook::add() {
 		};
 		break ;
 	}
-	this->contacts[this->latest_index % PHONEBOOK_LEN] \
+	contacts[latest_index % PHONEBOOK_LEN] \
 		= Contact(first_name, last_name, nickname, phone_number, darkest_secret);
-	this->latest_index++;
+	latest_index++;
 }
 
 void	PhoneBook::search() {
 	std::string	input;
 	size_t		index;
 	size_t		start;
-	bool		invalid_input = true;
 
-	if (this->latest_index == 0) {
+	if (latest_index == 0) {
 		std::cout << "no record in phonebook." << std::endl;
 		return ;
 	}
-	while (invalid_input) {
-		this->print_all_contacts();
-		std::cout << "search index: ";
-		if (!std::getline(std::cin, input)) {
-			continue ;
-		};
-		try {
-			index = std::stoul(input);
-			invalid_input = false;
-		}
-		catch (const std::invalid_argument& ex) {
-			std::cerr << ex.what() << std::endl;
-			continue ;
-		}
-		catch (const std::out_of_range& ex) {
-			std::cerr << ex.what() << std::endl;
-			continue ;
-		}
-		if (!(0 <= index && index < PHONEBOOK_LEN)) {
-			std::cerr << ERR_RANGE << std::endl;
-			invalid_input = true;
-		}
+	print_all_contacts();
+	std::cout << "search index: ";
+	if (!std::getline(std::cin, input)) {
+		return ;
+	};
+	try {
+		index = std::stoul(input);
 	}
-	start = this->latest_index <= PHONEBOOK_LEN ? 0 : this->latest_index % PHONEBOOK_LEN;
-	this->contacts[((index + start) % PHONEBOOK_LEN)].print_all_fields();
+	catch (const std::invalid_argument& ex) {
+		std::cerr << ex.what() << std::endl;
+		return ;
+	}
+	catch (const std::out_of_range& ex) {
+		std::cerr << ex.what() << std::endl;
+		return ;
+	}
+	if (!(0 <= index && index < PHONEBOOK_LEN && index < latest_index)) {
+		std::cerr << ERR_RANGE << std::endl;
+		return ;
+	}
+	start = latest_index <= PHONEBOOK_LEN ? 0 : latest_index % PHONEBOOK_LEN;
+	contacts[((index + start) % PHONEBOOK_LEN)].print_all_fields();
 }
 
 void	PhoneBook::print_all_contacts() {
@@ -156,14 +158,14 @@ void	PhoneBook::print_all_contacts() {
 	std::string header[LIST_FIELD_COL] = {"index", "first name", "last name", "nickname"};
 
 	print_row(LIST_FIELD_COL, header);
-	len = this->latest_index <= PHONEBOOK_LEN ? this->latest_index : PHONEBOOK_LEN;
-	start = this->latest_index <= PHONEBOOK_LEN ? 0 : this->latest_index % PHONEBOOK_LEN;
+	len = latest_index <= PHONEBOOK_LEN ? latest_index : PHONEBOOK_LEN;
+	start = latest_index <= PHONEBOOK_LEN ? 0 : latest_index % PHONEBOOK_LEN;
 	for (size_t i = 0; i < len; i++) {
 		index = (start + i) % PHONEBOOK_LEN;
 		contact_field[INDEX] = std::to_string(i);
-		contact_field[FIRST_NAME] = this->contacts[index].get_first_name();
-		contact_field[LAST_NAME] = this->contacts[index].get_last_name();
-		contact_field[NICKNAME] = this->contacts[index].get_nickname();
+		contact_field[FIRST_NAME] = contacts[index].get_first_name();
+		contact_field[LAST_NAME] = contacts[index].get_last_name();
+		contact_field[NICKNAME] = contacts[index].get_nickname();
 		print_row(LIST_FIELD_COL, contact_field);
 	}
 }
