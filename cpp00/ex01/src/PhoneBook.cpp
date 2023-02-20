@@ -135,9 +135,11 @@ void	PhoneBook::search() {
 		}
 		catch (const std::invalid_argument& ex) {
 			std::cerr << ex.what() << std::endl;
+			continue ;
 		}
 		catch (const std::out_of_range& ex) {
 			std::cerr << ex.what() << std::endl;
+			continue ;
 		}
 		if (!(0 <= index && index < PHONEBOOK_LEN)) {
 			std::cerr << ERR_RANGE << std::endl;

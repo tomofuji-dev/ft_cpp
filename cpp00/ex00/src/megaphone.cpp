@@ -7,7 +7,7 @@
 int	main(int argc, char *argv[]) {
 	if (argc == 1) {
 		std::cout << USAGE << std::endl;
-		return (FAILURE);
+		return FAILURE;
 	}
 	for (int i = 1; i < argc; i++) {
 		std::string	s = argv[i];
@@ -17,5 +17,5 @@ int	main(int argc, char *argv[]) {
 		std::cout << s;
 	}
 	std::cout << std::endl;
-	return (SUCCESS);
+	return SUCCESS;
 }
