@@ -1,5 +1,6 @@
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 #include "Color.hpp"
 #include <iostream>
 #include <string>
@@ -27,16 +28,29 @@ void test_execute(int grade, AForm* form) {
 }
 
 int main() {
-	std::cout 	<< YELLOW 
+	std::cout 	<< CYAN 
 				<< "======================================"	<< std::endl << std::endl;
 	std::cout 	<< "         test in shrubberry "			<< std::endl << std::endl;
 	std::cout 	<< "======================================"	<< RESET << std::endl;
 
 	test_execute(0, new ShrubberyCreationForm("shrubbery"));
+	test_execute(151, new ShrubberyCreationForm("shrubbery"));
 	test_execute(1, new ShrubberyCreationForm("shrubbery"));
 	test_execute(150, new ShrubberyCreationForm("shrubbery"));
 	test_execute(137, new ShrubberyCreationForm("shrubbery"));
 	test_execute(145, new ShrubberyCreationForm("shrubbery"));
+
+	std::cout 	<< CYAN
+				<< "======================================"	<< std::endl << std::endl;
+	std::cout 	<< "         test in robotomy "				<< std::endl << std::endl;
+	std::cout 	<< "======================================"	<< RESET << std::endl;
+
+	test_execute(0, new RobotomyRequestForm("robotomy"));
+	test_execute(151, new RobotomyRequestForm("robotomy"));
+	test_execute(1, new RobotomyRequestForm("robotomy"));
+	test_execute(150, new RobotomyRequestForm("robotomy"));
+	test_execute(45, new RobotomyRequestForm("robotomy"));
+	test_execute(72, new RobotomyRequestForm("robotomy"));
 }
 
 __attribute__((destructor))
