@@ -16,6 +16,7 @@ void test_signForm(Bureaucrat b, Form f, int n = 1) {
 	print(bureaucrat, form);
 	std::cout << "=== signform ===" << std::endl;
 	bureaucrat.signForm(form);
+	print(bureaucrat, form);
 	std::cout << "=== b++(" << n << ")===" << std::endl;
 	try {
 		for (int i = 0; i < n; i++) {
@@ -31,6 +32,7 @@ void test_signForm(Bureaucrat b, Form f, int n = 1) {
 	print(bureaucrat, form);
 	std::cout << "=== signform ===" << std::endl;
 	bureaucrat.signForm(form);
+	print(bureaucrat, form);
 	std::cout << "=== b--(" << n << ")===" << std::endl;
 	try {
 		for (int i = 0; i < 2 * n; i++) {
@@ -46,6 +48,7 @@ void test_signForm(Bureaucrat b, Form f, int n = 1) {
 	print(bureaucrat, form);
 	std::cout << "=== signform ===" << std::endl;
 	bureaucrat.signForm(form);
+	print(bureaucrat, form);
 }
 
 void test_initForm(int i, int j) {
