@@ -10,13 +10,13 @@ HumanB::HumanB(std::string const name) : _name(name), _weapon(nullptr) {
 HumanB::HumanB(std::string const name, Weapon* weapon) : _name(name), _weapon(weapon) {
 }
 
-HumanB::HumanB(HumanB const &src) : _name(src.getName()), _weapon(src.getWeapon()) {
+HumanB::HumanB(const HumanB& src) : _name(src.getName()), _weapon(src.getWeapon()) {
 }
 
 HumanB::~HumanB() {
 }
 
-HumanB&	HumanB::operator=(HumanB const &rhs) {
+HumanB&	HumanB::operator=(const HumanB& rhs) {
 	_name = rhs.getName();
 	_weapon = rhs.getWeapon();
 	return *this;

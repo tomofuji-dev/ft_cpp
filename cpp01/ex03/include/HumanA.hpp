@@ -7,9 +7,9 @@ class HumanA {
 public:
 
 	HumanA(std::string const name, Weapon& weapon);
-	HumanA(HumanA const &src);
+	HumanA(const HumanA& src);
 	~HumanA();
-	HumanA&	operator=(HumanA const &rhs);
+	HumanA&	operator=(const HumanA& rhs);
 
 	void		attack() const;
 	std::string	getName() const;

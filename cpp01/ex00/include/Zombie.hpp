@@ -8,9 +8,9 @@ public:
 
 	Zombie();
 	Zombie(std::string);
-	Zombie(Zombie const & src);
+	Zombie(const Zombie& src);
 	~Zombie();
-	Zombie&	operator=(Zombie const &rhs);
+	Zombie&	operator=(const Zombie& rhs);
 
 	void		announce() const;
 	std::string	getName() const;

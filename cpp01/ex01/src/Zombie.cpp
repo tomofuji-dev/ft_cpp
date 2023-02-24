@@ -9,7 +9,7 @@ Zombie::Zombie(std::string const name) : _name(name) {
 	std::cout << "constructor: " << _name << std::endl;
 }
 
-Zombie::Zombie(Zombie const &src) : _name(src.getName()){
+Zombie::Zombie(const Zombie& src) : _name(src.getName()){
 	std::cout << "copy constructor: " << _name << std::endl;
 }
 
@@ -17,7 +17,7 @@ Zombie::~Zombie() {
 	std::cout << "destructor: " << _name << std::endl;
 }
 
-Zombie&	Zombie::operator=(Zombie const &rhs) {
+Zombie&	Zombie::operator=(const Zombie& rhs) {
 	_name = rhs.getName();
 	return *this;
 }
