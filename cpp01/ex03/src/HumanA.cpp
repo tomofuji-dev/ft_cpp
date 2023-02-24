@@ -4,7 +4,7 @@
 HumanA::HumanA(std::string const name, Weapon& weapon) : _name(name), _weapon(weapon) {
 }
 
-HumanA::HumanA(const HumanA& src) : _name(src.getName()), _weapon(src.getWeapon()) {
+HumanA::HumanA(const HumanA& src) : _name(src._name), _weapon(src._weapon) {
 }
 
 HumanA::~HumanA() {

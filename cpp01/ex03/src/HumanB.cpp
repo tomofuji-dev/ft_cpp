@@ -10,7 +10,7 @@ HumanB::HumanB(std::string const name) : _name(name), _weapon(nullptr) {
 HumanB::HumanB(std::string const name, Weapon* weapon) : _name(name), _weapon(weapon) {
 }
 
-HumanB::HumanB(const HumanB& src) : _name(src.getName()), _weapon(src.getWeapon()) {
+HumanB::HumanB(const HumanB& src) : _name(src._name), _weapon(src._weapon) {
 }
 
 HumanB::~HumanB() {
