@@ -4,13 +4,13 @@
 HumanA::HumanA(std::string const name, Weapon& weapon) : _name(name), _weapon(weapon) {
 }
 
-HumanA::HumanA(HumanA const &src) : _name(src.getName()), _weapon(src.getWeapon()) {
+HumanA::HumanA(const HumanA& src) : _name(src._name), _weapon(src._weapon) {
 }
 
 HumanA::~HumanA() {
 }
 
-HumanA&	HumanA::operator=(HumanA const &rhs) {
+HumanA&	HumanA::operator=(const HumanA& rhs) {
 	_name = rhs.getName();
 	_weapon = rhs.getWeapon();
 	return *this;

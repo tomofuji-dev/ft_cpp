@@ -6,13 +6,13 @@ Weapon::Weapon() : _type("") {
 Weapon::Weapon(std::string const type) : _type(type) {
 }
 
-Weapon::Weapon(Weapon const &src) : _type(src.getType()){
+Weapon::Weapon(const Weapon& src) : _type(src.getType()){
 }
 
 Weapon::~Weapon() {
 }
 
-Weapon&	Weapon::operator=(Weapon const &rhs) {
+Weapon&	Weapon::operator=(const Weapon& rhs) {
 	_type = rhs.getType();
 	return *this;
 }

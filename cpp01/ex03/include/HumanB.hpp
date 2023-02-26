@@ -9,9 +9,9 @@ public:
 	HumanB();
 	HumanB(std::string const name);
 	HumanB(std::string const name, Weapon* weapon);
-	HumanB(HumanB const &src);
+	HumanB(const HumanB& src);
 	~HumanB();
-	HumanB&	operator=(HumanB const &rhs);
+	HumanB&	operator=(const HumanB& rhs);
 
 	void		attack() const;
 	std::string	getName() const;

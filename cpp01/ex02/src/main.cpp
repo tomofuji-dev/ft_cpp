@@ -3,8 +3,8 @@
 
 int main() {
 	std::string	stringRAW("HI THIS IS BRAIN");
-	std::string	*stringPTR = &stringRAW;
-	std::string	&stringREF = stringRAW;
+	std::string* stringPTR = &stringRAW;
+	std::string& stringREF = stringRAW;
 
 	std::cout << "=== memory address ===" << std::endl;
 	std::cout << "stringRAW: " << &stringRAW << std::endl;

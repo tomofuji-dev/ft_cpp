@@ -7,9 +7,9 @@ public:
 
 	Weapon();
 	Weapon(std::string const type);
-	Weapon(Weapon const &src);
+	Weapon(const Weapon& src);
 	~Weapon();
-	Weapon&	operator=(Weapon const &rhs);
+	Weapon&	operator=(const Weapon& rhs);
 
 	std::string	getType() const;
 	void		setType(std::string src);

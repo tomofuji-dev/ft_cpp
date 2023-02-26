@@ -4,12 +4,19 @@
 #define NUM_ZOMBIE 3
 
 int	main() {
-	Zombie	*zombies = zombieHorde(NUM_ZOMBIE, "hoge");
-	for (int i = 0; i < NUM_ZOMBIE; i++) {
-		std::cout << &zombies[i] << std::endl;
-		zombies[i].announce();
+	try {
+		Zombie	*zombies = zombieHorde(NUM_ZOMBIE, "hoge");
+		for (int i = 0; i < NUM_ZOMBIE; i++) {
+			std::cout << &zombies[i] << std::endl;
+			zombies[i].announce();
+		}
+		delete[] zombies;
 	}
-	delete zombies;
+	catch (std::exception& e) {
+		std::cerr << e.what() << std::cout;
+		return 1;
+	}
+	return 0;
 }
 
 __attribute__((destructor))
