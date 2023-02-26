@@ -1,6 +1,7 @@
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 #include "Color.hpp"
 #include <iostream>
 #include <string>
@@ -51,6 +52,18 @@ int main() {
 	test_execute(150, new RobotomyRequestForm("robotomy"));
 	test_execute(45, new RobotomyRequestForm("robotomy"));
 	test_execute(72, new RobotomyRequestForm("robotomy"));
+
+	std::cout 	<< CYAN
+				<< "======================================"	<< std::endl << std::endl;
+	std::cout 	<< "         test in pardon "				<< std::endl << std::endl;
+	std::cout 	<< "======================================"	<< RESET << std::endl;
+
+	test_execute(0, new PresidentialPardonForm("robotomy"));
+	test_execute(151, new PresidentialPardonForm("robotomy"));
+	test_execute(1, new PresidentialPardonForm("robotomy"));
+	test_execute(150, new PresidentialPardonForm("robotomy"));
+	test_execute(25, new PresidentialPardonForm("robotomy"));
+	test_execute(5, new PresidentialPardonForm("robotomy"));
 }
 
 __attribute__((destructor))

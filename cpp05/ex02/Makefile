@@ -18,7 +18,8 @@ SRCS		=	$(SRC_DIR)/main.cpp \
 				$(SRC_DIR)/AForm.cpp \
 				$(SRC_DIR)/FormExceptions.cpp \
 				$(SRC_DIR)/ShrubberyCreationForm.cpp \
-				$(SRC_DIR)/RobotomyRequestForm.cpp 
+				$(SRC_DIR)/RobotomyRequestForm.cpp \
+				$(SRC_DIR)/PresidentialPardonForm.cpp
 OBJS		=	$(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 DEPS		=	$(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.d)
 .PHONY: $(DEPS)
