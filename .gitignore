@@ -35,7 +35,6 @@
 *.out
 *.app
 
-template/*
 obj
 exe
 .vscode

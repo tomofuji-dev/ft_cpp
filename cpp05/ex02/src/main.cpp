@@ -58,12 +58,12 @@ int main() {
 	std::cout 	<< "         test in pardon "				<< std::endl << std::endl;
 	std::cout 	<< "======================================"	<< RESET << std::endl;
 
-	test_execute(0, new PresidentialPardonForm("robotomy"));
-	test_execute(151, new PresidentialPardonForm("robotomy"));
-	test_execute(1, new PresidentialPardonForm("robotomy"));
-	test_execute(150, new PresidentialPardonForm("robotomy"));
-	test_execute(25, new PresidentialPardonForm("robotomy"));
-	test_execute(5, new PresidentialPardonForm("robotomy"));
+	test_execute(0, new PresidentialPardonForm("pardon"));
+	test_execute(151, new PresidentialPardonForm("pardon"));
+	test_execute(1, new PresidentialPardonForm("pardon"));
+	test_execute(150, new PresidentialPardonForm("pardon"));
+	test_execute(25, new PresidentialPardonForm("pardon"));
+	test_execute(5, new PresidentialPardonForm("pardon"));
 }
 
 __attribute__((destructor))
