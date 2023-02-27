@@ -1,5 +1,5 @@
 #include "Dog.hpp"
-#include "iostream"
+#include <iostream>
 
 Dog::Dog() : Animal("Dog"), brain_(new Brain()) {
 	std::cout << "Dog()" << std::endl;
@@ -17,7 +17,7 @@ Dog::~Dog(){
 
 Dog&	Dog::operator=(const Dog& rhs){
 	Animal::type_ = rhs.Animal::type_;
-	brain_ = rhs.brain_;
+	*brain_ = *rhs.brain_;
 	return *this;
 }
 

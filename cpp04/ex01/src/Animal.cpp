@@ -1,5 +1,5 @@
 #include "Animal.hpp"
-#include "iostream"
+#include <iostream>
 
 Animal::Animal() : type_("") {
 	std::cout << "Animal()" << std::endl;

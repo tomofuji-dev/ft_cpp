@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ANIMAL_H
+#define ANIMAL_H
 #include <string>
 
 #define R		"\033[31m"
@@ -25,3 +26,5 @@ protected:
 	std::string type_;
 
 };
+
+#endif

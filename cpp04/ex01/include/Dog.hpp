@@ -1,4 +1,6 @@
-#pragma once
+#ifndef DOG_H
+#define DOG_H
+
 #include "Animal.hpp"
 #include "Brain.hpp"
 #include <string>
@@ -19,3 +21,5 @@ private:
 	Brain* brain_;
 
 };
+
+#endif

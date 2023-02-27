@@ -1,4 +1,5 @@
-#pragma once
+#ifndef BRAIN_H
+#define BRAIN_H
 #include <string>
 
 class Brain {
@@ -15,3 +16,5 @@ public:
 private:
 	std::string ideas_[nIdeas];
 };
+
+#endif

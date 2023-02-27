@@ -70,10 +70,16 @@ int main()
 		delete test3[i];
 	}
 
+	std::cout << R << "=== TEST DEEP COPY ===" << E << std::endl;
+	Cat test4;
+	Cat test5(test4);
+	std::cout << test4.getBrain() << std::endl;
+	std::cout << test5.getBrain() << std::endl;
+
 	return 0;
 }
 
-__attribute__((destructor))
-static void	destructor(void) {
-	system("leaks -q exe");
-}
+// __attribute__((destructor))
+// static void	destructor(void) {
+// 	system("leaks -q exe");
+// }
