@@ -11,8 +11,8 @@ public:
 	~Weapon();
 	Weapon&	operator=(const Weapon& rhs);
 
-	std::string	getType() const;
-	void		setType(std::string src);
+	const std::string&	getType() const;
+	void				setType(std::string src);
 
 private:
 	std::string _type;
