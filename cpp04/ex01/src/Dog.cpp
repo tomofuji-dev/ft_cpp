@@ -5,7 +5,7 @@ Dog::Dog() : Animal("Dog"), brain_(new Brain()) {
 	std::cout << "Dog()" << std::endl;
 }
 
-Dog::Dog(const Dog& src) : Animal(src) {
+Dog::Dog(const Dog& src) : Animal(src), brain_(new Brain()) {
 	std::cout << "Dog(src)" << std::endl;
 	*this = src;
 }
@@ -23,4 +23,8 @@ Dog&	Dog::operator=(const Dog& rhs){
 
 void	Dog::makeSound() const {
 	std::cout << Y << "BOWWOW!" << E << std::endl;
+}
+
+const Brain*	Dog::getBrain() const {
+	return brain_;
 }

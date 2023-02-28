@@ -41,7 +41,7 @@ AForm* Intern::makeForm(const std::string& formName, const std::string& target) 
 			break;
 		default:
 			std::cerr << RED << formName << "is not appropriate form name" << RESET << std::endl;
-			return nullptr;
+			return NULL;
 	}
 	std::cout << GREEN << "intern created " << formName << RESET << std::endl;
 	return form;

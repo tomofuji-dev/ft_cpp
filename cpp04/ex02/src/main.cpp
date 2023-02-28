@@ -43,8 +43,8 @@ int main()
 
 	// test1[0] = new Animal();
 	// test1[1] = new Animal();
-	test1[0] = nullptr;
-	test1[1] = nullptr;
+	test1[0] = NULL;
+	test1[1] = NULL;
 	test1[2] = new Dog();
 	test1[3] = new Dog();
 	test1[4] = new Cat();
@@ -75,7 +75,7 @@ int main()
 	return 0;
 }
 
-__attribute__((destructor))
-static void	destructor(void) {
-	system("leaks -q exe");
-}
+// __attribute__((destructor))
+// static void	destructor(void) {
+// 	system("leaks -q exe");
+// }

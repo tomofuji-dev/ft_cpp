@@ -76,6 +76,12 @@ int main()
 	std::cout << test4.getBrain() << std::endl;
 	std::cout << test5.getBrain() << std::endl;
 
+
+	std::cout << R << "=== TEST DEEP COPY ===" << E << std::endl;
+	Dog test6;
+	Dog test7(test6);
+	std::cout << test6.getBrain() << std::endl;
+	std::cout << test7.getBrain() << std::endl;
 	return 0;
 }
 

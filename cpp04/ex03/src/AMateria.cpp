@@ -1,21 +1,13 @@
 #include "AMateria.hpp"
 #include <iostream>
 
-AMateria::AMateria() : type_("") {
-	std::cout << "AMateria()" << std::endl;
-}
+AMateria::AMateria() : type_("") {}
 
-AMateria::AMateria(const std::string& type) : type_(type) {
-	std::cout << "AMateria(type)" << std::endl;
-}
+AMateria::AMateria(const std::string& type) : type_(type) {}
 
-AMateria::AMateria(const AMateria& src) : type_(src.type_){
-	std::cout << "AMateria(src)" << std::endl;
-}
+AMateria::AMateria(const AMateria& src) : type_(src.type_) {}
 
-AMateria::~AMateria() {
-	std::cout << "~AMateria()" << std::endl;
-}
+AMateria::~AMateria() {}
 
 AMateria&	AMateria::operator=(const AMateria& rhs) {
 	type_ = rhs.type_;

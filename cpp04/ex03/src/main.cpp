@@ -58,6 +58,16 @@ int main()
 	delete me;
 	delete src;
 
+	std::cout << "=== TEST MATERIA SOURCE DEEP COPY ===" << std::endl;
+	MateriaSource* msrc = new MateriaSource();
+	msrc->learnMateria(new Ice());
+	msrc->learnMateria(new Cure());
+	msrc->learnMateria(new Ice());
+	msrc->learnMateria(new Cure());
+	MateriaSource* mdest = new MateriaSource(*msrc);
+	delete msrc;
+	delete mdest;
+
 	std::cout << "=== TEST CHARACTER - MATERIA ===" << std::endl;
 	ICharacter* chara = new Character("chara");
 	AMateria* cure1 = new Cure();
@@ -70,12 +80,20 @@ int main()
 	chara->equip(cure4);
 	chara->equip(cure1);
 	chara->unequip(1);
+	chara->unequip(1);
+	chara->use(1, *chara);
 	chara->equip(cure2);
 	chara->unequip(3);
+	chara->unequip(3);
+	chara->use(3, *chara);
 	chara->equip(cure4);
 	chara->unequip(2);
+	chara->unequip(2);
+	chara->use(2, *chara);
 	chara->equip(cure3);
 	chara->unequip(0);
+	chara->unequip(0);
+	chara->use(0, *chara);
 	chara->equip(cure1);
 	chara->use(0, *chara);
 	chara->use(1, *chara);
@@ -100,7 +118,7 @@ int main()
 	delete chara2;
 }
 
-__attribute__((destructor))
-static void	destructor(void) {
-	system("leaks -q exe");
-}
+// __attribute__((destructor))
+// static void	destructor(void) {
+// 	system("leaks -q exe");
+// }

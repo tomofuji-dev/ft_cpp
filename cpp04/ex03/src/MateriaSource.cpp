@@ -3,19 +3,16 @@
 #include <iostream>
 
 MateriaSource::MateriaSource() {
-	std::cout << "MateriaSource()" << std::endl;
 	for (size_t i = 0; i < nSlots_; i++) {
-		materiaSourceSlots_[i] = nullptr;
+		materiaSourceSlots_[i] = NULL;
 	}
 }
 
 MateriaSource::MateriaSource(const MateriaSource& src) {
-	std::cout << "MateriaSource(src)" << std::endl;
 	*this = src;
 }
 
 MateriaSource::~MateriaSource() {
-	std::cout << "~MateriaSource()" << std::endl;
 	for (size_t i = 0; i < nSlots_; i++) {
 		delete materiaSourceSlots_[i];
 	}
@@ -23,7 +20,7 @@ MateriaSource::~MateriaSource() {
 
 MateriaSource&	MateriaSource::operator=(const MateriaSource& rhs) {
 	for (size_t i = 0; i < nSlots_; i++) {
-		materiaSourceSlots_[i] = rhs.materiaSourceSlots_[i];
+		materiaSourceSlots_[i] = rhs.materiaSourceSlots_[i]->clone();
 	}
 	return *this;
 }
@@ -32,7 +29,7 @@ void MateriaSource::learnMateria(AMateria* materia) {
 	size_t idx = get_empty_index();
 	
 	if (idx == nSlots_) {
-		std::cout << R << "[ERROR] " << "MateriaSource\'s slot is full" << E << std::endl;
+		std::cout << R << "[ERROR] learnMateria: " << "MateriaSource\'s slot is full" << E << std::endl;
 		return ;
 	}
 	materiaSourceSlots_[idx] = materia;
@@ -42,8 +39,8 @@ AMateria* MateriaSource::createMateria(std::string const & type) {
 	size_t idx = search_index(type);
 
 	if (idx == nSlots_) {
-		std::cout << R << "[ERROR] " << "MateriaSource don\'t have " << type << E << std::endl;
-		return nullptr;
+		std::cout << R << "[ERROR] createMateria: " << "MateriaSource don\'t have " << type << E << std::endl;
+		return NULL;
 	}
 	return materiaSourceSlots_[idx]->clone();
 }
@@ -51,7 +48,7 @@ AMateria* MateriaSource::createMateria(std::string const & type) {
 size_t MateriaSource::get_empty_index() const {
 	size_t i = 0;
 	for (; i < nSlots_; i++) {
-		if (materiaSourceSlots_[i] == nullptr)
+		if (materiaSourceSlots_[i] == NULL)
 			break ;
 	}
 	return i;

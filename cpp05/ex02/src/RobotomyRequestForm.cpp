@@ -29,7 +29,7 @@ RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm &r
 void	RobotomyRequestForm::execute(const Bureaucrat& executor) const {
 	AForm::assertExecutable(executor);
 	std::cout << GREEN << "~~~ TAP-TAP ~~~" << RESET << std::endl;
-	std::srand(std::time(nullptr));
+	std::srand(std::time(NULL));
 	usleep(std::rand() / 1000);
 	if (std::rand() % 2 == 1) {
 		std::cout << GREEN << "    Success!" << RESET << std::endl;
