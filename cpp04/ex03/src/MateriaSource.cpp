@@ -20,7 +20,11 @@ MateriaSource::~MateriaSource() {
 
 MateriaSource&	MateriaSource::operator=(const MateriaSource& rhs) {
 	for (size_t i = 0; i < nSlots_; i++) {
-		materiaSourceSlots_[i] = rhs.materiaSourceSlots_[i]->clone();
+		delete materiaSourceSlots_[i];
+		if (rhs.materiaSourceSlots_[i])
+			materiaSourceSlots_[i] = rhs.materiaSourceSlots_[i]->clone();
+		else
+			materiaSourceSlots_[i] = NULL;
 	}
 	return *this;
 }
