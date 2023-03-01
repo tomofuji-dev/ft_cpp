@@ -1,11 +1,11 @@
 #include "Cat.hpp"
 #include "iostream"
 
-Cat::Cat() : Animal("Cat"), brain_(new Brain()){
+Cat::Cat() : Animal("Cat"), brain_(new Brain()) {
 	std::cout << "Cat()" << std::endl;
 }
 
-Cat::Cat(const Cat& src) : Animal(src) {
+Cat::Cat(const Cat& src) : Animal(src), brain_(new Brain()) {
 	std::cout << "Cat(src)" << std::endl;
 	*this = src;
 }
@@ -17,10 +17,15 @@ Cat::~Cat(){
 
 Cat&	Cat::operator=(const Cat& rhs){
 	Animal::type_ = rhs.Animal::type_;
-	brain_ = rhs.brain_;
+	delete brain_;
+	brain_ = new Brain(*rhs.brain_);
 	return *this;
 }
 
 void	Cat::makeSound() const {
 	std::cout << G << "MEOW~" << E << std::endl;
+}
+
+const Brain*	Cat::getBrain() const {
+	return brain_;
 }
