@@ -5,7 +5,7 @@ Dog::Dog() : Animal("Dog"), brain_(new Brain()) {
 	std::cout << "Dog()" << std::endl;
 }
 
-Dog::Dog(const Dog& src) : Animal(src), brain_(new Brain()) {
+Dog::Dog(const Dog& src) : Animal(src), brain_(NULL) {
 	std::cout << "Dog(src)" << std::endl;
 	*this = src;
 }
