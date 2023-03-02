@@ -9,6 +9,9 @@ MateriaSource::MateriaSource() {
 }
 
 MateriaSource::MateriaSource(const MateriaSource& src) {
+	for (size_t i = 0; i < nSlots_; i++) {
+		materiaSourceSlots_[i] = NULL;
+	}
 	*this = src;
 }
 
