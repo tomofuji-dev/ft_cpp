@@ -15,6 +15,10 @@ int main()
 	// j->makeSound();
 	// meta->makeSound();
 
+	Dog* d = new Dog();
+ 	*d = *d;
+	delete d;
+
 	std::cout << R << "===== TEST IN CORRECT CLASS =====" << E << std::endl;
 	const Animal* meta = new Animal();
 	const Animal* dog = new Dog();

@@ -16,6 +16,9 @@ Character::Character(const std::string& name) : name_(name) {
 }
 
 Character::Character(const Character& src) : name_(src.name_) {
+	for (size_t i = 0; i < nSlots_; i++) {
+		characterSlots_[i] = NULL;
+	}
 	*this = src;
 }
 

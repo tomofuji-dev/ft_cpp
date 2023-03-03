@@ -16,9 +16,10 @@ Cat::~Cat(){
 }
 
 Cat&	Cat::operator=(const Cat& rhs){
+	Brain* tmp = brain_;
 	type_ = rhs.type_;
-	delete brain_;
 	brain_ = new Brain(*rhs.brain_);
+	delete tmp;
 	return *this;
 }
 
