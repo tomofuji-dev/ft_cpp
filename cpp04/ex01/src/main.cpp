@@ -15,6 +15,10 @@ int main()
 	// j->makeSound();
 	// meta->makeSound();
 
+	Dog* d = new Dog();
+ 	*d = *d;
+	delete d;
+
 	std::cout << R << "===== TEST IN CORRECT CLASS =====" << E << std::endl;
 	const Animal* meta = new Animal();
 	const Animal* dog = new Dog();
@@ -70,10 +74,22 @@ int main()
 		delete test3[i];
 	}
 
+	std::cout << R << "=== TEST DEEP COPY ===" << E << std::endl;
+	Cat test4;
+	Cat test5(test4);
+	std::cout << test4.getBrain() << std::endl;
+	std::cout << test5.getBrain() << std::endl;
+
+
+	std::cout << R << "=== TEST DEEP COPY ===" << E << std::endl;
+	Dog test6;
+	Dog test7(test6);
+	std::cout << test6.getBrain() << std::endl;
+	std::cout << test7.getBrain() << std::endl;
 	return 0;
 }
 
-__attribute__((destructor))
-static void	destructor(void) {
-	system("leaks -q exe");
-}
+// __attribute__((destructor))
+// static void	destructor(void) {
+// 	system("leaks -q exe");
+// }

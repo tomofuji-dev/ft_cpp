@@ -9,7 +9,7 @@ SRCDIRS		=	$(shell find $(SRC_DIR) -type d)
 INCLUDES	+=	$(addprefix -I ,$(SRCDIRS))
 
 CC			=	c++
-CFLAGS		=	-Wall -Wextra -Werror -std=c++98
+CFLAGS		=	-Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
 RM			=	rm
 
 SRCS		=	$(SRC_DIR)/Animal.cpp \

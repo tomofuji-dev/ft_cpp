@@ -1,10 +1,10 @@
 #include "HumanB.hpp"
 #include <iostream>
 
-HumanB::HumanB() : _name(""), _weapon(nullptr) {
+HumanB::HumanB() : _name(""), _weapon(NULL) {
 }
 
-HumanB::HumanB(std::string const name) : _name(name), _weapon(nullptr) {
+HumanB::HumanB(std::string const name) : _name(name), _weapon(NULL) {
 }
 
 HumanB::HumanB(std::string const name, Weapon* weapon) : _name(name), _weapon(weapon) {

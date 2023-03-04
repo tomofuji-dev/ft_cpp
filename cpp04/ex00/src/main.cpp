@@ -4,6 +4,7 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 #include <iostream>
+#include <cstdlib>
 
 int main()
 {
@@ -60,7 +61,7 @@ int main()
 	return 0;
 }
 
-__attribute__((destructor))
-static void	destructor(void) {
-	system("leaks -q exe");
-}
+// __attribute__((destructor))
+// static void	destructor(void) {
+// 	system("leaks -q exe");
+// }

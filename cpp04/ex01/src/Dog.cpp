@@ -1,11 +1,11 @@
 #include "Dog.hpp"
-#include "iostream"
+#include <iostream>
 
 Dog::Dog() : Animal("Dog"), brain_(new Brain()) {
 	std::cout << "Dog()" << std::endl;
 }
 
-Dog::Dog(const Dog& src) : Animal(src) {
+Dog::Dog(const Dog& src) : Animal(src), brain_(NULL) {
 	std::cout << "Dog(src)" << std::endl;
 	*this = src;
 }
@@ -16,11 +16,17 @@ Dog::~Dog(){
 }
 
 Dog&	Dog::operator=(const Dog& rhs){
-	Animal::type_ = rhs.Animal::type_;
-	brain_ = rhs.brain_;
+	Brain* tmp = brain_;
+	type_ = rhs.type_;
+	brain_ = new Brain(*rhs.brain_);
+	delete tmp;
 	return *this;
 }
 
 void	Dog::makeSound() const {
 	std::cout << Y << "BOWWOW!" << E << std::endl;
+}
+
+const Brain*	Dog::getBrain() const {
+	return brain_;
 }

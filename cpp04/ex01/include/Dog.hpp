@@ -1,4 +1,6 @@
-#pragma once
+#ifndef DOG_H
+#define DOG_H
+
 #include "Animal.hpp"
 #include "Brain.hpp"
 #include <string>
@@ -12,10 +14,13 @@ public:
 	~Dog();
 	Dog& operator=(const Dog& rhs);
 
-	void	makeSound() const;
+	void			makeSound() const;
+	const Brain*	getBrain() const;
 
 private:
 
 	Brain* brain_;
 
 };
+
+#endif

@@ -43,8 +43,8 @@ int main()
 
 	// test1[0] = new Animal();
 	// test1[1] = new Animal();
-	test1[0] = nullptr;
-	test1[1] = nullptr;
+	test1[0] = NULL;
+	test1[1] = NULL;
 	test1[2] = new Dog();
 	test1[3] = new Dog();
 	test1[4] = new Cat();
@@ -72,10 +72,23 @@ int main()
 		delete test3[i];
 	}
 
+	std::cout << R << "=== TEST DEEP COPY ===" << E << std::endl;
+	Cat test4;
+	Cat test5(test4);
+	std::cout << test4.getBrain() << std::endl;
+	std::cout << test5.getBrain() << std::endl;
+
+
+	std::cout << R << "=== TEST DEEP COPY ===" << E << std::endl;
+	Dog test6;
+	Dog test7(test6);
+	std::cout << test6.getBrain() << std::endl;
+	std::cout << test7.getBrain() << std::endl;
+
 	return 0;
 }
 
-__attribute__((destructor))
-static void	destructor(void) {
-	system("leaks -q exe");
-}
+// __attribute__((destructor))
+// static void	destructor(void) {
+// 	system("leaks -q exe");
+// }

@@ -55,7 +55,7 @@ int	Account::checkAmount() const {
 
 // std::cout << "[19920104_091532]";
 void	Account::_displayTimestamp() {
-	std::time_t now = std::time(nullptr);
+	std::time_t now = std::time(NULL);
 	std::cout << "[" << std::put_time(std::localtime(&now), "%Y%m%d_%H%M%S") << "]";
 };
 

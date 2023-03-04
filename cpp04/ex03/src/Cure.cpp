@@ -4,17 +4,11 @@
 
 const std::string Cure::materiaName_ = "cure";
 
-Cure::Cure() : AMateria(materiaName_) {
-	std::cout << "Cure()" << std::endl;
-}
+Cure::Cure() : AMateria(materiaName_) {}
 
-Cure::Cure(const Cure& src) : AMateria(src) {
-	std::cout << "Cure(src)" << std::endl;
-}
+Cure::Cure(const Cure& src) : AMateria(src) {}
 
-Cure::~Cure() {
-	std::cout << "~Cure()" << std::endl;
-}
+Cure::~Cure() {}
 
 Cure&	Cure::operator=(const Cure& rhs) {
 	AMateria::type_ = rhs.AMateria::type_;
@@ -25,6 +19,7 @@ Cure* Cure::clone() const {
 	Cure*	new_cure;
 
 	new_cure = new Cure(*this);
+	std::cout << Y << "this: " << this << ", cloned: " << new_cure << E << std::endl;
 	return new_cure;
 };
 
