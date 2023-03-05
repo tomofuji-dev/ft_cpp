@@ -4,16 +4,21 @@
 #include <fstream>
 #include <random>
 #include <ctime>
-#include <unistd.h>
 
 RobotomyRequestForm::RobotomyRequestForm()
-	: AForm("", gradeToSignShrubbery_, gradeToExecuteShrubbery_), target_("") {}
+	: AForm("", gradeToSignShrubbery_, gradeToExecuteShrubbery_), target_("") {
+	std::srand(std::time(NULL));
+}
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string target)
-	: AForm(target, gradeToSignShrubbery_, gradeToExecuteShrubbery_), target_(target) {}
+	: AForm(target, gradeToSignShrubbery_, gradeToExecuteShrubbery_), target_(target) {
+	std::srand(std::time(NULL));
+}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &src)
-	: AForm(src.getName(), src.getGradeToSign(), src.getGradeToExecute()), target_(src.target_) {}
+	: AForm(src.getName(), src.getGradeToSign(), src.getGradeToExecute()), target_(src.target_) {
+	std::srand(std::time(NULL));
+}
 
 RobotomyRequestForm::~RobotomyRequestForm() {
 	std::cout << "~RobotomyRequestForm()" << std::endl;
@@ -29,8 +34,6 @@ RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm &r
 void	RobotomyRequestForm::execute(const Bureaucrat& executor) const {
 	AForm::assertExecutable(executor);
 	std::cout << GREEN << "~~~ TAP-TAP ~~~" << RESET << std::endl;
-	std::srand(std::time(NULL));
-	usleep(std::rand() / 1000);
 	if (std::rand() % 2 == 1) {
 		std::cout << GREEN << "    Success!" << RESET << std::endl;
 	}
