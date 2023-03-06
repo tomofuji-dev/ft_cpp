@@ -26,49 +26,33 @@ void Converter::Convert(const std::string& src) {
 void Converter::printConversion(const char& val) {
 	std::cout << "char: ";		printAsChar(val);
 	std::cout << "int: ";		printAsInt(val);
-	std::cout << "float: ";		printAsFloat(val);
-	std::cout << "double: ";	printAsDouble(val);
+	std::cout << "float: ";		printAsFloat<const char>(val);
+	std::cout << "double: ";	printAsDouble<const char>(val);
 }
 
 void Converter::printConversion(const int& val) {
 	std::cout << "char: ";		printAsChar(val);
 	std::cout << "int: ";		printAsInt(val);
-	std::cout << "float: ";		printAsFloat(val);
-	std::cout << "double: ";	printAsDouble(val);
+	std::cout << "float: ";		printAsFloat<const int>(val);
+	std::cout << "double: ";	printAsDouble<const int>(val);
 }
 
 void Converter::printConversion(const float& val) {
-	std::cout << "char: ";
-	if (isnan(val) || isinf(val))
-		std::cout << YELLOW << "impossible" << RESET << std::endl;
-	else
-		printAsChar(val);
-	std::cout << "int: ";
-	if (isnan(val) || isinf(val))
-		std::cout << YELLOW << "impossible" << RESET << std::endl;
-	else
-		printAsInt(val);
-	std::cout << "float: ";		printAsFloat(val);
-	std::cout << "double: ";	printAsDouble(val);
+	std::cout << "char: ";		printFloatingPointAsChar(val);
+	std::cout << "int: ";		printFloatingPointAsInt(val);
+	std::cout << "float: ";		printFloatingPointAsFloat(val);
+	std::cout << "double: ";	printFloatingPointAsDouble(val);
 }
 
 void Converter::printConversion(const double& val) {
-	std::cout << "char: ";
-	if (isnan(val) || isinf(val))
-		std::cout << YELLOW << "impossible" << RESET << std::endl;
-	else
-		printAsChar(val);
-	std::cout << "int: ";
-	if (isnan(val) || isinf(val))
-		std::cout << YELLOW << "impossible" << RESET << std::endl;
-	else
-		printAsInt(val);
-	std::cout << "float: ";		printAsFloat(val);
-	std::cout << "double: ";	printAsDouble(val);
+	std::cout << "char: ";		printFloatingPointAsChar(val);
+	std::cout << "int: ";		printFloatingPointAsInt(val);
+	std::cout << "float: ";		printFloatingPointAsFloat(val);
+	std::cout << "double: ";	printFloatingPointAsDouble(val);
 }
 
 template<typename T>
-void Converter::printAsChar(T& val) {
+void Converter::printAsChar(T val) {
 	char c = static_cast<char>(val);
 	if (!(CHAR_MIN <= val && val <= CHAR_MAX)) {
 		std::cout << YELLOW << "impossible" << RESET << std::endl;
@@ -82,7 +66,17 @@ void Converter::printAsChar(T& val) {
 }
 
 template<typename T>
-void Converter::printAsInt(T& val) {
+void Converter::printFloatingPointAsChar(T val) {
+	if (isnan(val) || isinf(val)) {
+		std::cout << YELLOW << "impossible" << RESET << std::endl;
+	}
+	else {
+		printAsChar(val);
+	}
+}
+
+template<typename T>
+void Converter::printAsInt(T val) {
 	if (!(INT_MIN <= val && val <= INT_MAX)) {
 		std::cout << YELLOW << "impossible" << RESET << std::endl;
 	}
@@ -92,44 +86,60 @@ void Converter::printAsInt(T& val) {
 }
 
 template<typename T>
-void Converter::printAsFloat(T val) {
-	if (!(FLT_MIN <= val && val <= FLT_MAX)) {
+void Converter::printFloatingPointAsInt(T val) {
+	if (isnan(val) || isinf(val)) {
 		std::cout << YELLOW << "impossible" << RESET << std::endl;
 	}
 	else {
-		if ((typeid(T) == typeid(int) || typeid(T) == typeid(char))) {
-			std::cout.precision(1);
-		}
-		else {
-			std::cout.precision(7);
-		}
-		std::cout
-			<< std::showpoint
-        	<< std::fixed 
-			<< static_cast<float>(val)
-			<< std::defaultfloat
-			<< std::endl;
+		printAsInt(val);
 	}
 }
 
 template<typename T>
-void Converter::printAsDouble(T val) {
-	if (!(DBL_MIN <= val && val <= DBL_MAX)) {
-		std::cout << YELLOW << "impossible" << RESET << std::endl;
+void Converter::printAsFloat(T val, std::streamsize p) {
+	std::cout.precision(p);
+	std::cout
+		<< std::showpoint
+        << std::fixed 
+		<< static_cast<float>(val) << "f"
+		<< std::defaultfloat
+		<< std::endl;
+}
+
+template<typename T>
+void Converter::printFloatingPointAsFloat(T val) {
+	if (isnan(val) || isinf(val)) {
+		std::cout << static_cast<float>(val) << std::endl;
+	}
+	else if (-FLT_MAX <= val && val <= FLT_MAX) {
+		printAsFloat<T>(val, PREC_FLT);
 	}
 	else {
-		if ((typeid(T) == typeid(int) || typeid(T) == typeid(char))) {
-			std::cout.precision(1);
-		}
-		else {
-			std::cout.precision(15);
-		}
-		std::cout
-			<< std::showpoint
-        	<< std::fixed 
-			<< static_cast<double>(val)
-			<< std::defaultfloat
-			<< std::endl;
+		std::cout << YELLOW << "impossible" << RESET << std::endl;
+	}
+}
+
+template<typename T>
+void Converter::printAsDouble(T val, std::streamsize p) {
+	std::cout.precision(p);
+	std::cout
+		<< std::showpoint
+        << std::fixed 
+		<< static_cast<double>(val)
+		<< std::defaultfloat
+		<< std::endl;
+}
+
+template<typename T>
+void Converter::printFloatingPointAsDouble(T val) {
+	if (isnan(val) || isinf(val)) {
+		std::cout << static_cast<double>(val) << std::endl;
+	}
+	else if (-DBL_MAX <= val && val <= DBL_MAX) {
+		printAsDouble<T>(val, PREC_DBL);
+	}
+	else {
+		std::cout << YELLOW << "impossible" << RESET << std::endl;
 	}
 }
 

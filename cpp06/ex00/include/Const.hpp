@@ -4,6 +4,10 @@
 #define SUCCESS	0
 #define FAILURE 1
 
+#define PREC_INT 1
+#define PREC_FLT 7
+#define PREC_DBL 15
+
 #define ERR_ARGC		"[ERROR] num of args is invalid."
 #define ERR_INTERP		"[ERROR] the input can't be interpreted as char/int/float/double."
 
