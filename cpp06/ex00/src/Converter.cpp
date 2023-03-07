@@ -6,21 +6,16 @@
 #include "Const.hpp"
 
 void Converter::Convert(const std::string& src) {
-	if (isDisplayableChar(src)) {
+	if (isDisplayableChar(src))
 		printConversion(src[0]);
-	}
-	else if (isInt(src)) {
+	else if (isInt(src))
 		printConversion(interpretStr<int>(src));
-	}
-	else if (isFloat(src)) {
+	else if (isFloat(src))
 		printConversion(interpretStr<float>(src.substr(0, src.size()-1)));
-	}
-	else if (isDouble(src)) {
+	else if (isDouble(src))
 		printConversion(interpretStr<double>(src));
-	}
-	else {
+	else
 		std::cerr << RED << ERR_INTERP << RESET << std::endl;
-	}
 }
 
 void Converter::printConversion(const char& val) {
