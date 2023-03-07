@@ -6,8 +6,12 @@
 #include "Const.hpp"
 
 void Converter::Convert(const std::string& src) {
-	if (isDisplayableChar(src))
-		printConversion(src[0]);
+	if (isDisplayableChar(src)) {
+		if (std::isdigit(src[0]))
+			printConversion(std::atoi(&src[0]));
+		else
+			printConversion(src[0]);
+	}
 	else if (isInt(src))
 		printConversion(interpretStr<int>(src));
 	else if (isFloat(src))
@@ -104,7 +108,7 @@ void Converter::printAsFloat(T val, std::streamsize p) {
 template<typename T>
 void Converter::printFloatingPointAsFloat(T val) {
 	if (isnan(val) || isinf(val)) {
-		std::cout << static_cast<float>(val) << std::endl;
+		std::cout << static_cast<float>(val) << "f" << std::endl;
 	}
 	else if (-FLT_MAX <= val && val <= FLT_MAX) {
 		printAsFloat<T>(val, PREC_FLT);
