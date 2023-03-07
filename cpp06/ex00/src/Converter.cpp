@@ -6,12 +6,8 @@
 #include "Const.hpp"
 
 void Converter::Convert(const std::string& src) {
-	if (isDisplayableChar(src)) {
-		if (std::isdigit(src[0]))
-			printConversion(std::atoi(&src[0]));
-		else
-			printConversion(src[0]);
-	}
+	if (isDisplayableChar(src))
+		printConversion(src[0]);
 	else if (isInt(src))
 		printConversion(interpretStr<int>(src));
 	else if (isFloat(src))
@@ -142,10 +138,10 @@ void Converter::printFloatingPointAsDouble(T val) {
 	}
 }
 
-// non-displayable char is false
+// digit char is false ('1' ... '9')
 bool Converter::isDisplayableChar(const std::string& src) {
 	if (src.size() != 1) return false;
-	return std::isprint(src[0]);
+	return !std::isdigit(src[0]) && std::isprint(src[0]);
 }
 
 bool Converter::isInt(const std::string& src) {
