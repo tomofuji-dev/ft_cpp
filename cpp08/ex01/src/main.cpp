@@ -31,9 +31,22 @@ int main(int argc, char* argv[]) {
 	print_wrapper(sp);
 	for (int i = 0; i < N; i++) {
 		sp.addNumber(rand() % N);
-		if (N <= 10)
+		if (N <= 20)
 			print_wrapper(sp);
 	}
 	print_wrapper(sp);
 	return SUCCESS;
 }
+
+// int main()
+// {
+// 	Span sp = Span(5);
+// 	sp.addNumber(6);
+// 	sp.addNumber(3);
+// 	sp.addNumber(17);
+// 	sp.addNumber(9);
+// 	sp.addNumber(11);
+// 	std::cout << sp.shortestSpan() << std::endl;
+// 	std::cout << sp.longestSpan() << std::endl;
+// 	return 0;
+// }

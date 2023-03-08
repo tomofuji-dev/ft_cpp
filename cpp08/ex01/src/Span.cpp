@@ -29,18 +29,19 @@ void Span::addNumber(int num) {
 	}
 
 	// update shortest_span_
-	unsigned int diff;
-	if (num < *content_.begin()) {
-		diff = *content_.begin() - num;
+	std::set<int>::iterator bound = content_.lower_bound(num);
+	if (bound != content_.end()) {
+		unsigned int diff = *bound - num;
+		if (diff < shortest_span_) {
+			shortest_span_ = diff;
+		}
 	}
-	else if (num > *content_.rbegin()) {
-		diff = num - *content_.rbegin();
-	}
-	else {
-		diff = *content_.lower_bound(num) - num;
-	}
-	if (diff < shortest_span_) {
-		shortest_span_ = diff;
+	if (bound != content_.begin()) {
+		bound--;
+		unsigned int diff = num - *bound;
+		if (diff < shortest_span_) {
+			shortest_span_ = diff;
+		}
 	}
 
 	// insert
