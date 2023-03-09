@@ -6,7 +6,7 @@
 template <class T>
 void print_container(T& c) {
 	std::cout << "[";
-	for (typename T::iterator it = c.begin(); it != c.end(); it++) {
+	for (typename T::const_iterator it = c.begin(); it != c.end(); it++) {
 		if (it != c.begin())
 			std::cout << ", ";
 		std::cout << *it;
@@ -16,7 +16,7 @@ void print_container(T& c) {
 
 template <class T>
 void print_find_result(T& c, int query) {
-	typename T::iterator it = easyfind<T>(c, query);
+	typename T::const_iterator it = easyfind<T>(c, query);
 	if (it != c.end())
 		std::cout << "easy_find (" << query <<") : " << *it << std::endl;
 	else
@@ -41,6 +41,12 @@ int main() {
 	print_container(test2);
 	for (int i = 0; i < 7; i++) {
 		print_find_result(test2, i);
+	}
+	std::cout << "=== test const vector ===" << std::endl;
+	const std::vector<int> test3(test1);
+	print_container(test3);
+	for (int i = 0; i < 7; i++) {
+		print_find_result(test3, i);
 	}
 	return 0;
 }
