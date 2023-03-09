@@ -1,6 +1,10 @@
 #ifndef CONVERTER_HPP
 #define CONVERTER_HPP
 #include <string>
+#include <iostream>
+#include <sstream>
+#include <float.h>
+#include <math.h>
 #include "Const.hpp"
 
 class Converter {
@@ -50,4 +54,5 @@ class Converter {
 		static T	interpretStr(const std::string& src);
 };
 
+#include "Converter.tpp"
 #endif
