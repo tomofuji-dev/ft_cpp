@@ -13,3 +13,8 @@ int main() {
 	Data* re_data = deserialize(serialized);
 	print_data(re_data);
 }
+
+__attribute__((destructor))
+void destructor() {
+	system("leaks -q exe");
+}

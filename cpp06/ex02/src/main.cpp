@@ -71,4 +71,10 @@ int main() {
 	std::cout << base << std::endl;
 	std::cout << "id[pointer]: ";	identify(base);
 	std::cout << "id[reference]: ";	identify(*base);
+	delete base;
+}
+
+__attribute__((destructor))
+void destructor() {
+	system("leaks -q exe");
 }
