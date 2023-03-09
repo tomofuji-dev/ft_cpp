@@ -23,7 +23,6 @@ void print_find_result(T& c, int query) {
 		std::cout << "easy_find (" << query << ") : not found." << std::endl;
 }
 
-
 int main() {
 	std::cout << "=== test vector ===" << std::endl;
 	std::vector<int> test1;
@@ -44,4 +43,9 @@ int main() {
 		print_find_result(test2, i);
 	}
 	return 0;
+}
+
+__attribute__((destructor))
+void destructor() {
+	system("leaks -q exe");
 }

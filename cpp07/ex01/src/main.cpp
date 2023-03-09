@@ -1,15 +1,4 @@
-#include "iter.hpp"
-#include <iostream> 
-
-template<typename T>
-void increment(T& i) {
-	i++;
-}
-
-template<typename T>
-void print(const T& p) {
-	std::cout << p << " ";
-}
+#include "iter.hpp" 
 
 int main() {
 	static std::size_t	N = 5;

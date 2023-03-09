@@ -9,7 +9,7 @@ int main() {
 	}
 	{
 		try {
-			Array<unsigned int> arr1(10);
+			Array<unsigned int> arr1(100);
 			std::cout << arr1 << std::endl;
 			for (unsigned int i = 0; i < arr1.size(); i++) {
 				arr1[i] = i;
@@ -24,4 +24,9 @@ int main() {
 		}
 	}
 	return 0;
+}
+
+__attribute__((destructor))
+void destructor() {
+	system("leaks -q exe");
 }

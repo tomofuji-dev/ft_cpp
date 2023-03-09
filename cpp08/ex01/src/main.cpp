@@ -50,3 +50,8 @@ int main(int argc, char* argv[]) {
 // 	std::cout << sp.longestSpan() << std::endl;
 // 	return 0;
 // }
+
+__attribute__((destructor))
+void destructor() {
+	system("leaks -q exe");
+}
