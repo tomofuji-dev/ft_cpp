@@ -1,4 +1,4 @@
-NAME		=	exe
+NAME		=	btc
 
 SRC_DIR		=	src
 OBJ_DIR		=	obj
@@ -9,10 +9,11 @@ SRCDIRS		=	$(shell find $(SRC_DIR) -type d)
 INCLUDES	+=	$(addprefix -I ,$(SRCDIRS))
 
 CC			=	c++
-CFLAGS		=	-Wall -Wextra -Werror -std=c++98
+CFLAGS		=	-Wall -Wextra -Werror -std=c++98 -g
 RM			=	rm
 
-SRCS		=	$(SRC_DIR)/
+SRCS		=	$(SRC_DIR)/BitcoinExchange.cpp \
+				$(SRC_DIR)/main.cpp
 OBJS		=	$(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 DEPS		=	$(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.d)
 .PHONY: $(DEPS)
