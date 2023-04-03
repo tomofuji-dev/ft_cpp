@@ -11,8 +11,8 @@ BitcoinExchange::BitcoinExchange() {
 
 	std::string	line;
 	std::string	date;
-	double		val;
-	std::pair<std::map<std::string, double>::iterator, bool> insert_result;
+	float		val;
+	std::pair<std::map<std::string, float>::iterator, bool> insert_result;
 
 	while (std::getline(file, line)) {
 		try {
@@ -24,7 +24,7 @@ BitcoinExchange::BitcoinExchange() {
 		if (val < 0) {
 			throw std::runtime_error(ERR_DATA_CSV);
 		}
-		std::pair<std::string, double> entry(date, val);
+		std::pair<std::string, float> entry(date, val);
 		insert_result = rate_.insert(entry);
 		if (!insert_result.second) {
 			throw std::runtime_error(ERR_DATA_CSV);
@@ -53,13 +53,13 @@ void	BitcoinExchange::api(const std::string& inputPath) const {
 
 	std::string	line;
 	std::string	date;
-	double		vol, rate;
-	std::pair<std::map<std::string, double>::iterator, bool> insert_result;
+	float		vol, rate;
+	std::pair<std::map<std::string, float>::iterator, bool> insert_result;
 
 	while (std::getline(file, line)) {
 		try {
 			parse_line(line, DELIM_INPUT, date, vol);
-		} 
+		}
 		catch (std::runtime_error& e) {
 			std::cerr << e.what() << std::endl;
 			continue;
@@ -68,14 +68,18 @@ void	BitcoinExchange::api(const std::string& inputPath) const {
 			std::cerr << ERR_NOT_POS << std::endl;
 			continue;
 		}
+		if (vol > 1000) {
+			std::cerr << ERR_TOO_LARGE << std::endl;
+			continue;
+		}
 		rate = ref_rate(date);
 		std::cout << date << " => " << vol << " = " << vol * rate << std::endl;
 	}
 	file.close();
 }
 
-double	BitcoinExchange::ref_rate(const std::string& date) const {
-	std::map<std::string, double>::const_iterator it = rate_.lower_bound(date);
+float	BitcoinExchange::ref_rate(const std::string& date) const {
+	std::map<std::string, float>::const_iterator it = rate_.lower_bound(date);
 
 	if (it != rate_.end() && it->first == date) {
 		return it->second;
@@ -90,14 +94,14 @@ double	BitcoinExchange::ref_rate(const std::string& date) const {
 }
 
 void	BitcoinExchange::parse_line(const std::string& line, const std::string& delim, \
-										std::string& date, double& val)
+										std::string& date, float& val)
 {
 	if (line.length() <= LEN_DATE + delim.length()) {
 		throw std::runtime_error(ERR_LINE_FORM);
 	}
 	parse_date(date, line.substr(0, LEN_DATE));
 	assert_delim(line.substr(LEN_DATE, delim.length()), delim);
-	parse_double(val, line.substr(LEN_DATE + delim.length()));
+	parse_float(val, line.substr(LEN_DATE + delim.length()));
 }
 
 void BitcoinExchange::parse_date(std::string& dst, const std::string& src) {
@@ -115,14 +119,14 @@ void BitcoinExchange::assert_delim(const std::string& str, const std::string& de
 	}
 }
 
-void BitcoinExchange::parse_double(double& dst, const std::string& src) {
+void BitcoinExchange::parse_float(float& dst, const std::string& src) {
 	if (!isFloatingPoint(src)) {
-		throw std::runtime_error(ERR_DOUBLE);
+		throw std::runtime_error(ERR_float);
 	}
 	std::stringstream ss(src);
 	ss >> dst;
 	if (ss.fail()) {
-		throw std::runtime_error(ERR_DOUBLE);
+		throw std::runtime_error(ERR_float);
 	}
 }
 
