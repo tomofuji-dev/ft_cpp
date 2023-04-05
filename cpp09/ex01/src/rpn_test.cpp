@@ -88,11 +88,9 @@ public:
 CPPUNIT_TEST_SUITE_REGISTRATION(TestRPN);
 
 int main() {
-    CppUnit::Test* suite = CppUnit::TestFactoryRegistry::getRegistry().makeTest();
     CppUnit::TextUi::TestRunner runner;
-    runner.addTest(suite);
-    bool wasSuccessful = runner.run("", false);
-    CppUnit::TextOutputter outputter(&runner.result(), std::cerr);
-    outputter.write();
-    return wasSuccessful ? 0 : 1;
+    CppUnit::TestFactoryRegistry& registry = CppUnit::TestFactoryRegistry::getRegistry();
+    runner.addTest(registry.makeTest());
+    runner.run();
+    return 0;
 }
