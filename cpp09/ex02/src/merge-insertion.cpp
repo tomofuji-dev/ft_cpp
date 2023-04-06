@@ -95,7 +95,7 @@ void ford_johnson_sort(std::vector<int>& nums, int start, int end) {
 void ford_johnson_sort(std::deque<int>& nums, int start, int end) {
     int size = end - start + 1;
 
-    if (size <= 2) {
+    if (size <= 16) {
         insertion_sort(nums, start, end);
         return;
     }
