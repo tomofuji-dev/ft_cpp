@@ -1,10 +1,12 @@
 #pragma once
 #include <stack>
+#include <list>
 #include <string>
 #include <iterator>
 #include <iostream>
 
-typedef	std::string::const_iterator	const_str_iter;
+typedef	std::string::const_iterator			const_str_iter;
+typedef std::stack< int, std::list<int> >	list_base_stack;
 
 class RPN {
 	public:
@@ -15,7 +17,7 @@ class RPN {
 		int	calc(const std::string input);
 
 	private:
-		std::stack<int>		rpnStack_;
+		list_base_stack		rpnStack_;
 		std::string			input_;
 		
 		bool				is_operator(const char c) const;

@@ -31,7 +31,7 @@ int RPN::popFromStack() {
 
 int	RPN::calc(const std::string input) {
 	input_			= input;
-	rpnStack_		= std::stack<int>();
+	rpnStack_		= list_base_stack();
 
 	const_str_iter	it = input_.begin();
 	char			next_token;

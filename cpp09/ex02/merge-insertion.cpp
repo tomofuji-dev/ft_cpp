@@ -1,66 +1,110 @@
 #include <iostream>
 #include <vector>
+#include <deque>
 #include <algorithm>
 #include <iterator>
 
-void insertion_sort(std::vector<int>& vec, int start, int end) {
+void insertion_sort(std::vector<int>& nums, int start, int end) {
     for (int i = start + 1; i < end; ++i) {
-        int key = vec[i];
+        int key = nums[i];
         int j = i - 1;
-        while (j >= start && vec[j] > key) {
-            vec[j + 1] = vec[j];
+        while (j >= start && nums[j] > key) {
+            nums[j + 1] = nums[j];
             j--;
         }
-        vec[j + 1] = key;
+        nums[j + 1] = key;
     }
 }
 
-void merge(std::vector<int>& vec, int start, int mid, int end) {
-    int n1 = mid - start + 1;
+void insertion_sort(std::deque<int>& nums, int start, int end) {
+    for (int i = start + 1; i < end; ++i) {
+        int key = nums[i];
+        int j = i - 1;
+        while (j >= start && nums[j] > key) {
+            nums[j + 1] = nums[j];
+            j--;
+        }
+        nums[j + 1] = key;
+    }
+}
+
+void merge(std::vector<int>& nums, int start, int mid, int end) {
+    int n1 = mid - start;
     int n2 = end - mid;
+    int L[n1 + 1], R[n2 + 1];
 
-    std::vector<int> left(n1), right(n2);
+    for (int i = 0; i < n1; i++) L[i] = nums[start + i];  
+    for (int i = 0; i < n2; i++) R[i] = nums[mid + i];
+    L[n1] = INT_MAX;
+    R[n2] = INT_MAX;
 
-    std::copy(vec.begin() + start, vec.begin() + mid + 1, left.begin());
-    std::copy(vec.begin() + mid + 1, vec.begin() + end + 1, right.begin());
-
-    int i = 0, j = 0, k = start;
-    while (i < n1 && j < n2) {
-        if (left[i] <= right[j]) {
-            vec[k++] = left[i++];
-        } else {
-            vec[k++] = right[j++];
+    int j = 0, k = 0;
+    for (int i = start; i < end; i++) {
+        if (L[j] <= R[k]) {
+            nums[i] = L[j++];
+        }
+        else {
+            nums[i] = R[k++];
         }
     }
+}
 
-    while (i < n1) {
-        vec[k++] = left[i++];
-    }
+void merge(std::deque<int>& nums, int start, int mid, int end) {
+    int n1 = mid - start;
+    int n2 = end - mid;
+    int L[n1 + 1], R[n2 + 1];
 
-    while (j < n2) {
-        vec[k++] = right[j++];
+    for (int i = 0; i < n1; i++) L[i] = nums[start + i];  
+    for (int i = 0; i < n2; i++) R[i] = nums[mid + i];
+    L[n1] = INT_MAX;
+    R[n2] = INT_MAX;
+
+    int j = 0, k = 0;
+    for (int i = start; i < end; i++) {
+        if (L[j] <= R[k]) {
+            nums[i] = L[j++];
+        }
+        else {
+            nums[i] = R[k++];
+        }
     }
 }
 
-void ford_johnson_sort(std::vector<int>& vec, int start, int end) {
+void ford_johnson_sort(std::vector<int>& nums, int start, int end) {
     int size = end - start + 1;
 
-    if (size <= 16) {
-        insertion_sort(vec, start, end);
+    if (size <= 2) {
+        insertion_sort(nums, start, end);
         return;
     }
 
     int mid = (start + end) / 2;
-    ford_johnson_sort(vec, start, mid);
-    ford_johnson_sort(vec, mid + 1, end);
-    merge(vec, start, mid, end);
+    ford_johnson_sort(nums, start, mid);
+    ford_johnson_sort(nums, mid, end);
+    merge(nums, start, mid, end);
+}
+
+void ford_johnson_sort(std::deque<int>& nums, int start, int end) {
+    int size = end - start + 1;
+
+    if (size <= 2) {
+        insertion_sort(nums, start, end);
+        return;
+    }
+
+    int mid = (start + end) / 2;
+    ford_johnson_sort(nums, start, mid);
+    ford_johnson_sort(nums, mid, end);
+    merge(nums, start, mid, end);
 }
 
 int main() {
-    std::vector<int> data = {7, 2, 9, 4, 3, 8, 6, 1, 5};
-    ford_johnson_sort(data, 0, data.size() - 1);
-
-    std::copy(data.begin(), data.end(), std::ostream_iterator<int>(std::cout, " "));
+    std::vector<int> vec = {7, 2, 9, 4, 3, 8, 6, 1, 5};
+    std::deque<int> deq = {7, 2, 9, 4, 3, 8, 6, 1, 5};
+    ford_johnson_sort(vec, 0, vec.size());
+    ford_johnson_sort(deq, 0, deq.size());
+    std::copy(vec.begin(), vec.end(), std::ostream_iterator<int>(std::cout, " "));
+    std::copy(deq.begin(), deq.end(), std::ostream_iterator<int>(std::cout, " "));
     std::cout << std::endl;
 
     return 0;
