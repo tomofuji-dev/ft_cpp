@@ -16,6 +16,9 @@ Cat::~Cat(){
 }
 
 Cat&	Cat::operator=(const Cat& rhs){
+	if (this == &rhs) {
+		return *this;
+	}
 	Brain* tmp = brain_;
 	type_ = rhs.type_;
 	brain_ = new Brain(*rhs.brain_);

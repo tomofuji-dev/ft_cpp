@@ -11,6 +11,9 @@ Cure::Cure(const Cure& src) : AMateria(src) {}
 Cure::~Cure() {}
 
 Cure&	Cure::operator=(const Cure& rhs) {
+	if (this == &rhs) {
+		return *this;
+	}
 	AMateria::type_ = rhs.AMateria::type_;
 	return *this;
 }

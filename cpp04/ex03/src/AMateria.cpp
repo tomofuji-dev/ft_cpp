@@ -10,6 +10,9 @@ AMateria::AMateria(const AMateria& src) : type_(src.type_) {}
 AMateria::~AMateria() {}
 
 AMateria&	AMateria::operator=(const AMateria& rhs) {
+	if (this == &rhs) {
+		return *this;
+	}
 	type_ = rhs.type_;
 	return *this;
 }

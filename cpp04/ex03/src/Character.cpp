@@ -29,6 +29,9 @@ Character::~Character() {
 }
 
 Character&	Character::operator=(const Character& rhs) {
+	if (this == &rhs) {
+		return *this;
+	}
 	name_ = rhs.name_;
 	for (size_t i = 0; i < nSlots_; i++) {
 		delete characterSlots_[i];

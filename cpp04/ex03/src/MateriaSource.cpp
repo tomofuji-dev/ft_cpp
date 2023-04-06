@@ -22,6 +22,9 @@ MateriaSource::~MateriaSource() {
 }
 
 MateriaSource&	MateriaSource::operator=(const MateriaSource& rhs) {
+	if (this == &rhs) {
+		return *this;
+	}
 	for (size_t i = 0; i < nSlots_; i++) {
 		delete materiaSourceSlots_[i];
 		if (rhs.materiaSourceSlots_[i])

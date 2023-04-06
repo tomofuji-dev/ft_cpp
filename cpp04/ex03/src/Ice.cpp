@@ -11,6 +11,9 @@ Ice::Ice(const Ice& src) : AMateria(src) {}
 Ice::~Ice() {}
 
 Ice&	Ice::operator=(const Ice& rhs) {
+	if (this == &rhs) {
+		return *this;
+	}
 	AMateria::type_ = rhs.AMateria::type_;
 	return *this;
 }
