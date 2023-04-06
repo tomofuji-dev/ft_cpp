@@ -17,7 +17,7 @@ BitcoinExchange::BitcoinExchange() {
 	while (std::getline(file, line)) {
 		try {
 			parse_line(line, DELIM_DATA, date, val);
-		} 
+		}
 		catch (std::runtime_error& e) {
 			throw std::runtime_error(ERR_DATA_CSV);
 		}
@@ -72,7 +72,13 @@ void	BitcoinExchange::api(const std::string& inputPath) const {
 			std::cerr << ERR_TOO_LARGE << std::endl;
 			continue;
 		}
-		rate = ref_rate(date);
+		try {
+			rate = ref_rate(date);
+		}
+		catch (const std::runtime_error& e) {
+			std::cerr << e.what() << std::endl;
+			continue;
+		}
 		std::cout << date << " => " << vol << " = " << vol * rate << std::endl;
 	}
 	file.close();
