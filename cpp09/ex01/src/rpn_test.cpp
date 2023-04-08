@@ -51,8 +51,8 @@ public:
 
     void testErrorOnInvalidExpression() {
         CPPUNIT_ASSERT_THROW(rpn.calc("1 +"), std::runtime_error);
-		CPPUNIT_ASSERT_THROW(rpn.calc("1 + "), std::runtime_error);
-		CPPUNIT_ASSERT_THROW(rpn.calc("1 1 + "), std::runtime_error);
+		    CPPUNIT_ASSERT_THROW(rpn.calc("1 + "), std::runtime_error);
+		    CPPUNIT_ASSERT_THROW(rpn.calc("1 1 + "), std::runtime_error);
         CPPUNIT_ASSERT_THROW(rpn.calc("+ 1"), std::runtime_error);
         CPPUNIT_ASSERT_THROW(rpn.calc("1 a +"), std::runtime_error);
     }
@@ -63,25 +63,25 @@ public:
 
     void testErrorOnOverflowInAddition() {
         CPPUNIT_ASSERT_EQUAL(INT_MAX, rpn.calc("0 2 - 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 1 + 0 1 - *"));
-		CPPUNIT_ASSERT_THROW(rpn.calc("0 2 - 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 1 + 0 1 - * 1 +"), std::overflow_error);
+		    CPPUNIT_ASSERT_THROW(rpn.calc("0 2 - 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 1 + 0 1 - * 1 +"), std::overflow_error);
     }
 
     void testErrorOnOverflowInSubtraction() {
-		CPPUNIT_ASSERT_EQUAL(INT_MAX, rpn.calc("0 2 - 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 1 + 0 1 - *"));
+		    CPPUNIT_ASSERT_EQUAL(INT_MAX, rpn.calc("0 2 - 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 1 + 0 1 - *"));
         CPPUNIT_ASSERT_EQUAL(INT_MIN, rpn.calc("0 2 - 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *"));
-		CPPUNIT_ASSERT_THROW(rpn.calc("0 2 - 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 1 -"), std::overflow_error);
+		    CPPUNIT_ASSERT_THROW(rpn.calc("0 2 - 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 1 -"), std::overflow_error);
     }
 
     void testErrorOnOverflowInMultiplication() {
-		CPPUNIT_ASSERT_EQUAL(INT_MAX, rpn.calc("0 2 - 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 1 + 0 1 - *"));
-		CPPUNIT_ASSERT_THROW(rpn.calc("0 2 - 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 1 + 0 1 - * 2 *"), std::overflow_error);
-        CPPUNIT_ASSERT_EQUAL(INT_MIN, rpn.calc("0 2 - 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *"));
-		CPPUNIT_ASSERT_THROW(rpn.calc("0 2 - 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 2 *"), std::overflow_error);
+		  CPPUNIT_ASSERT_EQUAL(INT_MAX, rpn.calc("0 2 - 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 1 + 0 1 - *"));
+		  CPPUNIT_ASSERT_THROW(rpn.calc("0 2 - 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 1 + 0 1 - * 2 *"), std::overflow_error);
+      CPPUNIT_ASSERT_EQUAL(INT_MIN, rpn.calc("0 2 - 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *"));
+		  CPPUNIT_ASSERT_THROW(rpn.calc("0 2 - 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 2 *"), std::overflow_error);
     }
 
     void testErrorOnOverflowInDivision() {
-		CPPUNIT_ASSERT_EQUAL(INT_MIN, rpn.calc("0 2 - 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *"));
-		CPPUNIT_ASSERT_THROW(rpn.calc("0 2 - 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 0 1 - /"), std::overflow_error);
+	    CPPUNIT_ASSERT_EQUAL(INT_MIN, rpn.calc("0 2 - 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *"));
+		  CPPUNIT_ASSERT_THROW(rpn.calc("0 2 - 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 0 1 - /"), std::overflow_error);
     }
 };
 
